@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#000000"> <!-- Fix for Safari white bar -->
     <title>Coming Soon | MCKNZ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&display=swap');
@@ -14,7 +14,7 @@
             font-family: 'Orbitron', sans-serif;
         }
         body {
-            background: radial-gradient(circle, #0f0f0f, #000000);
+            background: #000000;
             color: #00ffff;
             text-align: center;
             display: flex;
@@ -23,10 +23,12 @@
             height: 100vh;
             overflow: hidden;
             padding: 20px;
+            position: relative;
         }
         .container {
             width: 90%;
             max-width: 800px;
+            position: relative;
         }
         .title-box {
             display: inline-block;
@@ -36,13 +38,23 @@
             box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.9);
             border-radius: 20px;
             max-width: 100%;
+            position: relative;
         }
         h1 {
-            font-size: 10vw; /* Responsive font size */
+            font-size: 10vw;
             color: #00ffff;
             text-transform: uppercase;
             text-shadow: 0 0 30px rgba(0, 255, 255, 1);
-            white-space: nowrap; /* Prevents breaking into two lines */
+            white-space: nowrap;
+        }
+        h2 {
+            font-size: 2.5vw;
+            color: #00ffff;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            letter-spacing: 0.5em;
+            margin-top: 10px;
+            display: block;
         }
         p {
             font-size: 1.5rem;
@@ -56,7 +68,11 @@
         }
         @media screen and (max-width: 600px) {
             h1 {
-                font-size: 15vw; /* Adjusts even more for small screens */
+                font-size: 15vw;
+            }
+            h2 {
+                font-size: 4vw;
+                letter-spacing: 0.7em;
             }
             .title-box {
                 padding: 20px;
@@ -71,6 +87,7 @@
     <div class="container">
         <div class="title-box">
             <h1>MCKNZ</h1>
+            <h2>Development</h2>
         </div>
         <p>🚀 The future is being built...</p>
         <div class="footer">&copy; 2025 MCKNZ. All rights reserved.</div>
