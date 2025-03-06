@@ -47,6 +47,10 @@
             text-shadow: 0 0 30px rgba(0, 255, 255, 1);
             white-space: nowrap;
         }
+        h1 {
+    font-size: clamp(40px, 10vw, 120px); /* Limits growth */
+    max-width: 100%; /* Ensures it doesn’t exceed container */
+}
   
         p {
             font-size: 1.5rem;
