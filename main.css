@@ -46,8 +46,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 10px;
+    padding: 10px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -61,19 +61,35 @@ figure {
     margin: 2px;
     width: calc(25% - 20px);
 }
+
 figure img {
     border: 5px solid black;
 }
 
 @media screen and (max-width: 900px) {
+    #main {
+        gap: 5px;
+        padding: 5px;
+    }
     figure {
-        width: calc(50% - 20px);
+        width: calc(50% - 10px);
+    }
+    figcaption {
+        font-size: 1em;
     }
 }
 
 @media screen and (max-width: 600px) {
+    #main {
+        gap: 5px;
+        padding: 5px;
+    }
     figure {
         width: 100%;
+        margin: 5px 0;
+    }
+    figcaption {
+        font-size: 0.9em;
     }
 }
 
@@ -88,10 +104,12 @@ figcaption {
     font-size: 1.2em;
     color: silver;
 }
+
 footer{
     text-align: center;
     margin-top: 20px;
 }
+
 footer img{
     border: 5px solid black;
 }
