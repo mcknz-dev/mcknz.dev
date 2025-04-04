@@ -49,14 +49,7 @@ body {
 
 @media screen and (max-width: 600px) {
     #first {
-        max-width: 100%;
-        padding: 10px;
-    }
-    #first img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
+        display: none;
     }
 }
 
@@ -157,3 +150,4 @@ footer {
 footer img {
     border: 5px solid black;
 }
+
