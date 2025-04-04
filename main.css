@@ -56,9 +56,6 @@ figure {
     transition: transform 0.2s ease-in-out;
 }
 
-figure:hover {
-    transform: scale(1.02);
-}
 
 figure img {
     border: 5px solid black;
