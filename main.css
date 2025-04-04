@@ -15,14 +15,6 @@ header {
     width: 100%;
 }
 
-header img {
-    height: auto;
-    max-width: 80%;
-    margin: 0 auto;
-    display: block;
-    border: 5px solid black;
-}
-
 body {
     background-color: dimgrey;
     margin: 0;
