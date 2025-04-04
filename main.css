@@ -10,12 +10,14 @@ header {
     background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
     max-width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    top: 0;
+    width: 100%;
 }
 
 header img {
     height: auto;
-    width: 100%;
-    max-width: 100%;
+    max-width: 80%;
     margin: 0 auto;
     display: block;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
@@ -49,7 +51,9 @@ body {
 
 @media screen and (max-width: 600px) {
     #first {
-        display: none;
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
     }
 }
 
@@ -150,5 +154,3 @@ footer {
 footer img {
     border: 5px solid black;
 }
-
-
