@@ -8,13 +8,14 @@ header {
     margin: 20px auto;
     padding: 20px;
     background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
-    max-width: 1200px;
+    max-width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 header img {
     height: auto;
-    max-width: 80%;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     display: block;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
@@ -32,12 +33,13 @@ body {
     margin: 20px auto;
     padding: 20px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
 }
 
 #first img {
     border: 6px solid black;
     border-radius: 10px;
+    width: 100%;
     max-width: 100%;
     height: auto;
 }
