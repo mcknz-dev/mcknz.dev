@@ -18,6 +18,10 @@
       background-color: black;
       color: #888;
       padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .container {
@@ -26,7 +30,6 @@
       gap: 1.5rem;
       max-width: 900px;
       width: 100%;
-      margin: 0 auto;
     }
 
     .logo {
@@ -131,6 +134,10 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
       .container {
         display: flex;
         flex-direction: column;
@@ -139,7 +146,7 @@
       }
 
       .logo {
-        font-size: 3.5rem;
+        font-size: 3rem;
         flex-wrap: wrap;
         justify-content: center;
       }
