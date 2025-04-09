@@ -45,9 +45,6 @@
       align-items: center;
       gap: 0.5rem;
       white-space: nowrap;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInUp 1.5s ease-out forwards;
     }
 
     .logo span.orange {
@@ -60,13 +57,13 @@
 
     .logo span.cursor {
       color: #ff7a00;
+      font-size: 1.2em;
+      animation: blink 1s infinite;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .box {
@@ -146,9 +143,13 @@
       }
 
       .logo {
-        font-size: 2.3rem;
+        font-size: 2.5rem;
         flex-wrap: nowrap;
         justify-content: center;
+      }
+
+      .logo .cursor {
+        font-size: 1.6rem;
       }
 
       .box {
