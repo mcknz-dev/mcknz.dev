@@ -45,36 +45,28 @@
       align-items: center;
       gap: 0.5rem;
       white-space: nowrap;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 1.5s ease-out forwards;
     }
 
-    .typewriter {
-      overflow: hidden;
-      display: inline-block;
-      width: 0;
-      animation: typing 2.5s steps(9, end) forwards;
-    }
-
-    .typewriter span.orange {
+    .logo span.orange {
       color: #ff7a00;
     }
 
-    .typewriter span.grey {
+    .logo span.grey {
       color: #888;
     }
 
-    .cursor {
+    .logo span.cursor {
       color: #ff7a00;
-      animation: blink 1s infinite;
     }
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 9ch; }
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .box {
@@ -193,10 +185,7 @@
 <body>
   <div class="container">
     <div class="logo">
-      <span class="typewriter">
-        <span class="orange">MCKNZ</span><span class="grey">.DEV</span>
-      </span>
-      <span class="cursor">|</span>
+      <span class="orange">MCKNZ</span><span class="grey">.DEV</span><span class="cursor">|</span>
     </div>
 
     <a href="about.html" class="box" target="_blank"><i class="fas fa-user"></i><br>About</a>
