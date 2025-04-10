@@ -102,6 +102,11 @@
       text-decoration: none;
       color: #ff7a00;
       transition: transform 0.3s ease;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
     }
 
     .wallpaper-card:hover {
@@ -111,7 +116,8 @@
 
     .wallpaper-card img {
       width: 100%;
-      height: auto;
+      height: 360px;        /* <-- set a specific height */
+      object-fit: cover;    /* <-- fills the space cleanly */
       display: block;
     }
 
@@ -168,13 +174,17 @@
   </div>
 
   <div class="wallpaper-grid">
-    <a href="apple/index.html" class="wallpaper-card">
+    <a href="/apple/index.html" class="wallpaper-card">
       <img src="apple/1.png" alt="Apple Wallpaper">
       <p> Coded Core</p>
     </a>
     <a href="#" class="wallpaper-card">
-      <img src="android/soon.png" alt="Android Wallpaper">
+      <img src="android%20/soon.png" alt="Android Wallpaper">
       <p>🤖 Android Collection</p>
+    </a>
+    <a href="#" class="wallpaper-card">
+      <img src="csoon.png" alt="Coming Soon">
+      <p>🪐 New Collection</p>
     </a>
   </div>
 </div>
