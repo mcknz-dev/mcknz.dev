@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallpapers | MCKNZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      background-color: black;
+      color: #888;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      margin-bottom: 2rem;
+    }
+
+    .logo a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .logo {
+      font-size: 5.2rem;
+      font-weight: bold;
+      white-space: nowrap;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo span.orange {
+      color: #ff7a00;
+    }
+
+    .logo span.grey {
+      color: #888;
+    }
+
+    .logo span.cursor {
+      color: #ff7a00;
+      font-size: 1.2em;
+      animation: blink 1s infinite;
+    }
+
+    .path-text {
+      font-size: 2rem;
+      color: #888;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .wallpaper-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .wallpaper-card {
+      background: rgba(136, 136, 136, 0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #ff7a00;
+      transition: transform 0.3s ease;
+    }
+
+    .wallpaper-card:hover {
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+
+    .wallpaper-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .wallpaper-card p {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .logo-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 2.5rem;
+      }
+
+      .path-text {
+        font-size: 1.2rem;
+      }
+
+      .wallpaper-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .wallpaper-card {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .wallpaper-card p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-wrapper">
+    <div class="logo">
+      <a href="index.html">
+        <span class="orange">MCKNZ</span><span class="grey">.DEV</span><span class="cursor">|</span>
+      </a>
+    </div>
+    <span class="path-text">wallpapers</span>
+  </div>
+
+  <div class="wallpaper-grid">
+    <a href="#" class="wallpaper-card">
+      <img src="apple/1.png" alt="Apple Wallpaper">
+      <p> Coded Core</p>
+    </a>
+    <a href="#" class="wallpaper-card">
+      <img src="android%20/soon.png" alt="Android Wallpaper">
+      <p>🤖 Android Collection</p>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
