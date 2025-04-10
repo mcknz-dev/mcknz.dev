@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wallpapers | MCKNZ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -16,10 +16,10 @@
     body {
       background-color: black;
       color: #888;
-      padding: 2rem;
+      padding: 1.5rem;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
       min-height: 100vh;
     }
 
@@ -28,18 +28,17 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 1000px;
+      max-width: 1200px;
     }
 
     .logo-wrapper {
       display: flex;
       flex-direction: row;
-      flex-wrap: nowrap;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      flex-shrink: 0;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .logo a {
@@ -50,7 +49,7 @@
     }
 
     .logo {
-      font-size: 5.2rem;
+      font-size: 5rem;
       font-weight: bold;
       white-space: nowrap;
       display: flex;
@@ -72,7 +71,7 @@
     }
 
     .path-text {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #888;
       animation: fadeIn 1.2s ease-in;
     }
@@ -89,24 +88,27 @@
 
     .wallpaper-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+      max-width: 1100px;
       width: 100%;
-      max-width: 900px;
+      margin-bottom: 1.5rem;
     }
 
     .wallpaper-card {
       background: rgba(136, 136, 136, 0.2);
-      border-radius: 15px;
-      overflow: hidden;
+      border-radius: 16px;
       text-decoration: none;
       color: #ff7a00;
-      transition: transform 0.3s ease;
-      max-width: 320px;
+      max-width: 340px;
+      height: 540px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
+      overflow: hidden;
+      transition: transform 0.3s ease;
     }
 
     .wallpaper-card:hover {
@@ -114,17 +116,37 @@
       cursor: pointer;
     }
 
-    .wallpaper-card img {
+    .image-wrapper {
       width: 100%;
-      height: 360px;        /* <-- set a specific height */
-      object-fit: cover;    /* <-- fills the space cleanly */
-      display: block;
+      aspect-ratio: 9 / 17;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      padding: 0.5rem;
+      border-radius: 16px;
     }
 
     .wallpaper-card p {
       text-align: center;
-      padding: 1rem;
-      font-size: 1.2rem;
+      padding: 0.75rem;
+      font-size: 1.5rem;
+      margin-top: auto;
+    }
+
+    footer {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #666;
+      text-align: center;
+      width: 100%;
+      padding: 0.5rem 0;
     }
 
     @media (max-width: 768px) {
@@ -136,7 +158,7 @@
       }
 
       .logo {
-        font-size: 2.5rem;
+        font-size: 2.6rem;
       }
 
       .path-text {
@@ -146,13 +168,14 @@
       .wallpaper-grid {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.25rem;
         align-items: center;
       }
 
       .wallpaper-card {
         width: 100%;
-        max-width: 400px;
+        max-width: 420px;
+        height: 520px;
       }
 
       .wallpaper-card p {
@@ -175,18 +198,30 @@
 
   <div class="wallpaper-grid">
     <a href="/apple/index.html" class="wallpaper-card">
-      <img src="apple/1.png" alt="Apple Wallpaper">
+      <div class="image-wrapper">
+        <img src="apple/1.png" alt="Apple Wallpaper" />
+      </div>
       <p> Coded Core</p>
     </a>
+
     <a href="#" class="wallpaper-card">
-      <img src="android/soon.png" alt="Android Wallpaper">
+      <div class="image-wrapper">
+        <img src="android%20/soon.png" alt="Android Wallpaper" />
+      </div>
       <p>🤖 Android Collection</p>
     </a>
+
     <a href="#" class="wallpaper-card">
-      <img src="csoon.png" alt="Coming Soon">
+      <div class="image-wrapper">
+        <img src="csoon.png" alt="Coming Soon" />
+      </div>
       <p>🪐 New Collection</p>
     </a>
   </div>
+
+  <footer>
+    &copy; 2025 MCKNZ.DEV · Created by Mackenzie
+  </footer>
 </div>
 
 </body>
