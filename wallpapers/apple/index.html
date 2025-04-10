@@ -1,80 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&display=swap">
-    <title>MCKNZ</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Apple Wallpapers | MCKNZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background-color: black;
+            color: #888;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .logo a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .logo {
+            font-size: 5rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span.orange {
+            color: #ff7a00;
+        }
+
+        .logo span.grey {
+            color: #888;
+        }
+
+        .logo span.cursor {
+            color: #ff7a00;
+            font-size: 1.2em;
+            animation: blink 1s infinite;
+        }
+
+        .path-text {
+            font-size: 1.6rem;
+            color: #888;
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        .path-text a {
+            text-decoration: none;
+            color: #888;
+        }
+
+        .path-text a:hover {
+            color: #ff7a00;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .wallpaper-card {
+            background: rgba(136, 136, 136, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .wallpaper-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .wallpaper-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #444;
+        }
+
+        .download-links {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .download-links a {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .download-links a:hover,
+        .download-links a:active,
+        .download-links a:focus {
+            color: #ff7a00;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.6rem;
+            }
+
+            .path-text {
+                font-size: 1.2rem;
+            }
+
+            .download-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<main>
-<section id="first">
-    <img src="Coded%20Core2.png" alt="Coded%20Core" width="1500" height=700">
-</section>
-<section id = "main">
-    <figure>
-        <img src="1.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="colour.png"target="_blank">Mobile</a><br>
-            <a href="colourdesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="2.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="white.png"target="_blank">Mobile</a><br>
-            <a href="whitedesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="3.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="grey.png"target="_blank">Mobile</a><br>
-            <a href="greydesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="4.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="blue.png"target="_blank">Mobile</a><br>
-            <a href="bluedesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="5.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="green.png"target="_blank">Mobile</a><br>
-            <a href="greendesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="6.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="red.png"target="_blank">Mobile</a><br>
-            <a href="reddesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="7.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="pink.png"target="_blank">Mobile</a><br>
-            <a href="pinkdesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="8.png" alt="wallpaper" width="350px" height="450px" class="wallpaper">
-        <figcaption>
-            <a href="purple.png"target="_blank">Mobile</a><br>
-            <a href="purpledesk.png"target="_blank">Desktop</a>
-        </figcaption>
-    </figure>
-</section>
-<footer>
-    <p>&copy; 2025 MCKNZ.DEV All rights reserved.</p>
-</footer>
+<div class="logo-wrapper">
+    <div class="logo">
+        <a href="../index.html">
+            <span class="orange">MCKNZ</span><span class="grey">.DEV</span><span class="cursor">|</span>
+        </a>
+    </div>
+    <span class="path-text">
+    <a href="../wallpapers/index.html">wallpapers</a> / Coded Core
+  </span>
+</div>
 
-</main>
+<div class="wallpaper-grid">
+    <div class="wallpaper-card">
+        <img src="1.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="colour.png">Mobile</a>
+            <a href="colourdesk.png">Desktop</a>
+        </div>
+    </div>
+    <div class="wallpaper-card">
+        <img src="2.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="white.png">Mobile</a>
+            <a href="whitedesk.png">Desktop</a>
+        </div>
+    </div>
+    <div class="wallpaper-card">
+        <img src="3.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="grey.png">Mobile</a>
+            <a href="greydesk.png">Desktop</a>
+        </div>
+    </div>
+    <div class="wallpaper-card">
+        <img src="4.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="blue.png">Mobile</a>
+            <a href="bluedesk.png">Desktop</a>
+        </div>
+    </div>
+    <div class="wallpaper-card">
+        <img src="5.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="green.png">Mobile</a>
+            <a href="greendesk.png">Desktop</a>
+        </div>
+    </div>
+    <div class="wallpaper-card">
+        <img src="6.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="red.png">Mobile</a>
+            <a href="reddesk.png">Desktop</a>
+        </div>
+    </div>
+    <div class="wallpaper-card">
+        <img src="7.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="pink.png">Mobile</a>
+            <a href="pinkdesk.png">Desktop</a>
+        </div>
+    </div>
+    <div class="wallpaper-card">
+        <img src="8.png" alt="Coded Core Wallpaper">
+        <div class="download-links">
+            <a href="purple.png">Mobile</a>
+            <a href="purpledesk.png">Desktop</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2025 MCKNZ.DEV • Created by Mackenzie
+</footer>
 
 </body>
 </html>
