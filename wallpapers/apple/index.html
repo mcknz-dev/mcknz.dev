@@ -25,24 +25,29 @@
 
         .logo-wrapper {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin-bottom: 2rem;
             text-align: center;
-        }
-
-        .logo a {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
         }
 
         .logo {
             font-size: 5rem;
             font-weight: bold;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .logo span.orange {
@@ -60,17 +65,25 @@
         }
 
         .path-text {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
+            font-weight: normal;
             color: #888;
             animation: fadeIn 1.2s ease-in;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .path-text a {
-            text-decoration: none;
             color: #888;
+            text-decoration: none;
         }
 
         .path-text a:hover {
+            color: #ff7a00;
+        }
+
+        .path-text .slash {
             color: #ff7a00;
         }
 
@@ -120,7 +133,7 @@
         }
 
         .download-links a {
-            color: #00aaff;
+            color: #ff7a00;
             text-decoration: none;
             font-size: 1.1rem;
             transition: color 0.3s;
@@ -140,6 +153,11 @@
         }
 
         @media (max-width: 768px) {
+            .logo-wrapper {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
             .logo {
                 font-size: 2.6rem;
             }
@@ -160,12 +178,15 @@
 <div class="logo-wrapper">
     <div class="logo">
         <a href="../index.html">
-            <span class="orange">MCKNZ</span><span class="grey">.DEV</span><span class="cursor">|</span>
+            <span class="orange">MCKNZ</span><span class="grey">.DEV</span>
         </a>
+        <span class="cursor">|</span>
     </div>
-    <span class="path-text">
-    <a href="../wallpapers/index.html">wallpapers</a> / Coded Core
-  </span>
+    <div class="path-text">
+        <a href="../wallpapers/index.html">wallpapers</a>
+        <span class="slash">/</span>
+        <span>Coded Core</span>
+    </div>
 </div>
 
 <div class="wallpaper-grid">
