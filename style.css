@@ -8,8 +8,10 @@
 
 body {
     background-image: url(test21.png);
-    background-size: auto;
+     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-color: black;
     color: #888;
     padding: 2rem;
