@@ -18,49 +18,50 @@
     </div>
 
     <!-- Contact Info Tiles -->
-    <a href="mailto:hello@mcknz.dev" class="box contact-tile email-tile">
-        <i class="fas fa-envelope"></i><br><span class="email-text">hello@mcknz.dev</span>
-    </a>
+  <!-- Email stays visible -->
+  <a href="mailto:hello@mcknz.dev" class="box contact-tile email-tile">
+    <i class="fas fa-envelope"></i><br><span class="email-text">hello@mcknz.dev</span>
+  </a>
 
-    <a href="about.html" class="box" target="_blank">
-        <i class="fas fa-user"></i><br>About
-    </a>
+  <!-- These will be hidden on mobile -->
+  <a href="about.html" class="box hide-mobile" target="_blank">
+    <i class="fas fa-user"></i><br>About
+  </a>
 
-    <!-- Placeholder / Future Tile -->
-    <a href="projects.html" class="box" target="_blank">
-        <i class="fas fa-folder-open"></i><br>Projects
-    </a>
+  <a href="projects.html" class="box hide-mobile" target="_blank">
+    <i class="fas fa-folder-open"></i><br>Projects
+  </a>
 
-    <!-- Top Nav Tiles -->
-    <!-- Placeholder / Future Tile -->
-    <a href="/wallpapers/index.html" class="box" target="_blank">
-        <i class="fas fa-image"></i><br>Wallpapers
-    </a>
-    <div class="box placeholder-tile">
-        <i class="fas fa-laptop-code"></i><br>Coming Soon
-    </div>
-    <div class="box placeholder-tile">
-        <i class="fas fa-laptop-code"></i><br>Coming Soon
-    </div>
+  <a href="/wallpapers/index.html" class="box" target="_blank">
+    <i class="fas fa-image"></i><br>Wallpapers
+  </a>
 
-    <!-- Social Tiles Row -->
-    <div class="social-box-container">
-        <a href="https://www.instagram.com/mcknz.dev" class="box" target="_blank">
-            <i class="fab fa-instagram"></i><br>Instagram
-        </a>
-        <a href="https://github.com/mcknz-dev" class="box" target="_blank">
-            <i class="fab fa-github"></i><br>GitHub
-        </a>
-        <a href="#" class="box" target="_blank">
-            <i class="fab fa-threads"></i><br>Threads
-        </a>
-        <a href="#" class="box" target="_blank">
-            <i class="fab fa-linkedin"></i><br>LinkedIn
-        </a>
-        <button id="theme-toggle" class="box" aria-label="Toggle dark mode">
-            <i class="fas fa-moon"></i><br>Theme
-        </button>
-    </div>
+  <!-- Coming Soon tiles hidden on mobile -->
+  <div class="box placeholder-tile hide-mobile">
+    <i class="fas fa-laptop-code"></i><br>Coming Soon
+  </div>
+  <div class="box placeholder-tile hide-mobile">
+    <i class="fas fa-laptop-code"></i><br>Coming Soon
+  </div>
+
+  <!-- === Social Tiles Row (Centered & Clean) === -->
+  <div class="social-box-container">
+    <a href="https://www.instagram.com/mcknz.dev" class="box" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://github.com/mcknz-dev" class="box" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="#" class="box" target="_blank" aria-label="Threads">
+      <i class="fab fa-threads"></i>
+    </a>
+    <a href="#" class="box" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <button id="theme-toggle" class="box" aria-label="Toggle dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
 
     <!-- Footer -->
     <footer>
