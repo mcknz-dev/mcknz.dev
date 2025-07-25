@@ -7,12 +7,7 @@
 }
 
 body {
-    background-image: url(test21.png); /* Dark tech circuit background */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: black;
+    background-color: white;
     color: #888;
     padding: 2rem;
     display: flex;
@@ -24,11 +19,12 @@ body {
 /* === CONTAINER GRID (DESKTOP) === */
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3-column layout */
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     max-width: 1000px;
     width: 100%;
     margin-top: 2rem;
+    justify-items: center;
 }
 
 /* === LOGO === */
@@ -44,10 +40,10 @@ body {
     white-space: nowrap;
     margin-bottom: 1rem;
 }
-.logo span.orange { color: #ff6600; }
+.logo span.orange { color: #EE8131; }
 .logo span.grey { color: #888; }
 .logo span.cursor {
-    color: #ff6600;
+    color: #EE8131;
     font-size: 1.2em;
     animation: blink 1s infinite;
 }
@@ -60,22 +56,29 @@ body {
 .box,
 .social-box,
 .contact-info {
-    background: rgba(20, 20, 20, 0.35);
-    backdrop-filter: blur(1.6px) brightness(2);
-    -webkit-backdrop-filter: blur(2px) brightness(2);
-    border: 1px solid rgba(200, 200, 200, 0.3);
-    box-shadow: 0 0 6px rgba(180, 180, 180, 0.3), 0 0 1px rgba(220, 220, 220, 0.4);
-    border-radius: 20px;
+    background: #888;
+    border-radius: 16px;
     padding: 1.2rem;
     text-align: center;
-    color: #ff6600;
+    color: white;
     font-size: 1.1rem;
-    letter-spacing: 2px;
-    text-shadow: 0 0 2px rgba(255, 102, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1.5px;
     text-decoration: none;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === ICONS === */
+.box i,
+.social-box i,
+.contact-info i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
 }
 
 /* === HOVER EFFECTS === */
@@ -86,24 +89,22 @@ body {
 #theme-toggle:hover {
     transform: translateY(-5px);
     cursor: pointer;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4),
-    0 0 12px rgba(255, 102, 0, 0.6),
-    0 0 20px rgba(255, 102, 0, 0.4);
-    color: #ff6600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+/* === HOVER EFFECT: Icon glows orange, text stays white === */
+.box:hover i {
+    color: #EE8131;
+    transition: color 0.3s ease;
 }
 
-/* === ICONS === */
-.box i,
-.social-box i,
-.contact-info i {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #ccc;
+/* Prevent text color from changing on hover */
+.box {
+    color: white;
+    transition: transform 0.3s ease;
 }
-.box:hover i,
-.social-box:hover i,
-.contact-info:hover i {
-    color: #ff6600;
+
+.box:hover {
+    transform: translateY(-4px);
 }
 
 /* === CONTACT EMAIL ROW === */
@@ -112,15 +113,10 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    text-decoration: none;
 }
 .contact-info i {
     font-size: 1.2rem;
-    color: #ccc;
-    padding: 0.4rem;
-    border-radius: 50%;
     margin-bottom: 0;
-    box-shadow: 0 0 8px rgba(204, 204, 204, 0.35);
     transition: box-shadow 0.3s ease, color 0.3s ease;
 }
 
@@ -129,28 +125,27 @@ body {
     grid-column: span 3;
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
-    padding-top: 1.5rem;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 2rem;
 }
+
 .social-box-container .box {
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
+    width: 64px;
+    height: 64px;
+    background: none;
+    border: none;
+    box-shadow: none;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(20, 20, 20, 0.35);
-    backdrop-filter: blur(1.6px) brightness(2);
-    -webkit-backdrop-filter: blur(2px) brightness(2);
-    border: 1px solid rgba(200, 200, 200, 0.3);
-    box-shadow: 0 0 6px rgba(180, 180, 180, 0.3), 0 0 1px rgba(220, 220, 220, 0.4);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
 .social-box-container .box i {
-    font-size: 3rem;
-    color: #ccc;
-    margin: 0;
+    font-size: 2.2rem;
+    color: #EE8131;
+    margin: 0 !important;
 }
 
 /* === FOOTER === */
@@ -164,24 +159,18 @@ footer {
 
 /* === THEME TOGGLE === */
 #theme-toggle {
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
     padding: 0;
-    background: rgba(20, 20, 20, 0.35);
-    backdrop-filter: blur(1.6px) brightness(2);
-    -webkit-backdrop-filter: blur(2px) brightness(2);
-    border: 1px solid rgba(200, 200, 200, 0.3);
-    box-shadow: 0 0 6px rgba(180, 180, 180, 0.3), 0 0 1px rgba(220, 220, 220, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    color: #ccc;
 }
 
 #theme-toggle i {
-    font-size: 3rem;
+    font-size: 2.2rem;
+    color: #EE8131;
     margin: 0;
 }
 
@@ -190,14 +179,19 @@ body.dark-mode {
     background-color: black;
     color: #ccc;
 }
+
 body.dark-mode .box,
 body.dark-mode .social-box {
-    background: rgb(39, 39, 39);
+    background: #555;
+    color: white;
 }
+
 body.dark-mode .box i,
-body.dark-mode .social-box i {
-    color: #ccc;
+body.dark-mode .social-box i,
+body.dark-mode #theme-toggle i {
+    color: #EE8131;
 }
+
 body.dark-mode footer {
     color: #888;
 }
@@ -228,7 +222,6 @@ body.dark-mode footer {
     .social-box {
         width: 100%;
         max-width: 340px;
-        padding: 1.2rem;
         font-size: 1rem;
         letter-spacing: 1.2px;
     }
@@ -250,28 +243,18 @@ body.dark-mode footer {
     }
 
     .social-box-container {
-        display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-        padding-top: 1.2rem;
-        width: 100%;
+        gap: 1rem;
+        padding-top: 1.5rem;
     }
 
     .social-box-container .box {
-        width: 70px;
-        height: 70px;
-        border-radius: 16px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
+        width: auto;
+        height: auto;
     }
 
     .social-box-container .box i {
         font-size: 1.8rem;
-        color: #ccc;
-        margin: 0 !important;
     }
 
     .social-box-container .box:active {
@@ -280,13 +263,6 @@ body.dark-mode footer {
 
     .hide-mobile {
         display: none !important;
-    }
-
-    #theme-toggle {
-        width: 70px;
-        height: 70px;
-        border-radius: 16px;
-        padding: 0;
     }
 
     #theme-toggle i {
