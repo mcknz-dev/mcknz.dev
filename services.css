@@ -1,0 +1,221 @@
+/* === Reset & Globals === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background: white;
+    color: #333;
+}
+
+/* === Logo === */
+.logo {
+    font-size: 6rem;
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.logo .orange {
+    color: #EE8131;
+}
+
+.logo .grey {
+    color: #888;
+}
+
+.logo .cursor {
+    color: #EE8131;
+    font-size: 1.2em;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* === Navigation === */
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem 0;
+    background: rgba(122, 122, 122, 0.61);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+nav a {
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ee8131;
+}
+
+/* === Gradient Section === */
+.gradient-section {
+    background: rgb(214, 214, 214);
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+/* === Section Title === */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #EE8131;
+}
+
+/* === Services Layout === */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.service-box {
+    background: linear-gradient(to bottom right, #555, #444);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    flex: 1 1 360px;
+    max-width: 420px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-6px);
+}
+
+.service-box h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    color: white;
+}
+
+.service-box h2 i {
+    color: #EE8131;
+    font-size: 1.3em;
+}
+
+.service-box p {
+    margin: 1rem 0 1.5rem;
+    color: white;
+    font-size: 1.05rem;
+}
+
+.service-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-box ul li {
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: white;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-box ul li::before {
+    content: '\2022';
+    color: #EE8131;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* === Contact CTA === */
+.contact-cta {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.contact-cta h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-cta a {
+    color: #EE8131;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-cta a:hover {
+    text-decoration: underline;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    @media (max-width: 768px) {
+        .logo {
+            font-size: 3rem;
+            flex-direction: row; /* Stay on one line */
+        }
+
+        nav {
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.8rem 1rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+    }
+
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box {
+        max-width: 90%;
+    }
+}
