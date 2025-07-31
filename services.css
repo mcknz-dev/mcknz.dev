@@ -75,7 +75,7 @@ nav a:hover {
 
 /* === Gradient Section === */
 .gradient-section {
-    background: rgb(214, 214, 214);
+    background: white;
     padding-top: 2rem;
     padding-bottom: 4rem;
 }
