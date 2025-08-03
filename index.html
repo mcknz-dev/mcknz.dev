@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MCKNZ.DEV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script>
+        function copyEmail() {
+            const email = "hello@mcknz.dev";
+            navigator.clipboard.writeText(email).then(() => {
+                const feedback = document.getElementById("copy-feedback");
+                feedback.style.opacity = 1;
+                setTimeout(() => {
+                    feedback.style.opacity = 0;
+                }, 1500);
+            });
+        }
+    </script>
+</head>
+<body>
+
+<!-- Logo -->
+<div id="typed-logo" class="logo">
+    <span class="orange"></span>
+    <span class="grey"></span>
+    <span class="cursor">|</span>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar no-glow">
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#wallpapers">Wallpapers</a>
+</nav>
+
+<!-- === Services Section === -->
+<section id="services" class="gradient-section">
+    <h2 class="section-title no-glow">Services</h2>
+    <div class="services-container">
+
+        <!-- Shopify -->
+        <div class="service-box glowing-border">
+            <h2><i class="fa-brands fa-shopify"></i> Shopify</h2>
+            <br>
+            <p>Whether you’re just getting started or giving your store a glow-up, I build clean, responsive Shopify sites that are easy to manage and ready to sell. Custom code? Theme tweaks? App help? I’ve got you covered.</p>
+            <br>
+            <br>
+            <h3>Services</h3>
+            <br>
+            <ul>
+                <li>Full store setup from scratch</li>
+                <li>Custom builds or theme edits</li>
+                <li>Shopify apps & integrations</li>
+                <li>Mobile-friendly design</li>
+                <li>Checkout customizations</li>
+                <li>Payment gateway configuration</li>
+                <li>Shipping & tax setup</li>
+                <li>Product upload + organization</li>
+                <br>
+            </ul>
+        </div>
+
+        <!-- Websites -->
+        <div class="service-box glowing-border">
+            <h2><i class="fa-solid fa-laptop-code"></i> Websites</h2>
+            <br>
+            <p>Your online presence should be more than just a template. I build custom websites that are fast, responsive, and uniquely tailored to your brand — whether you’re showcasing your work, offering services, or starting a business, I'm here to help!</p>
+            <br>
+            <h3>Services</h3>
+            <br>
+            <ul>
+                <li>Freelancer portfolios</li>
+                <li>Service-based business sites</li>
+                <li>Personal branding sites</li>
+                <li>Digital resumes & CVs</li>
+                <li>Event or launch landing pages</li>
+                <li>Artist & creator showcases</li>
+                <li>Link-in-bio websites</li>
+                <li>Coming soon / pre-launch pages</li>
+
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="service-box glowing-border">
+            <h2><i class="fa-solid fa-screwdriver-wrench"></i> Support</h2>
+            <br>
+            <p>Have a store or site that needs some love? I fix bugs, clean up designs, and smooth out the rough edges. From theme rollbacks to embedded content and domain tweaks — I’ll make sure everything runs just right, without the stress.</p>
+            <br>
+            <h3>Services</h3>
+            <br>
+            <ul>
+                <li>Bug fixes & edits</li>
+                <li>Fixing layout issues</li>
+                <li>Mobile responsiveness</li>
+                <li>Design touch-ups</li>
+                <li>Domain & SSL help</li>
+                <li>Speed or performance fixes</li>
+                <li>Post-launch tweaks</li>
+                <li>Custom email setup </li>
+            </ul>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: black">
+            Don’t see what you’re looking for? I take on all kinds of projects — just <a href="#contact">get in touch</a> and let’s chat.
+        </p>
+
+    </div>
+</section>
+
+
+
+<!-- === Contact Section === -->
+<section id="contact" class="gradient-section">
+    <h2 class="section-title no-glow">Contact</h2>
+
+    <div class="contact-grid">
+
+        <!-- Email Tile -->
+        <div class="contact-box glowing-border email">
+            <h2><i class="fas fa-envelope"></i> Let’s Connect</h2>
+            <p class="contact-sub">Have a project or idea?<br>I’d love to hear it.</p>
+
+            <hr class="contact-divider" />
+
+            <div class="email-button-row">
+                <a href="mailto:hello@mcknz.dev" class="contact-email-button">hello@mcknz.dev</a>
+
+                <div class="clipboard-wrapper">
+                    <button class="clipboard-button" onclick="copyEmail()">
+                        <i class="fas fa-clipboard"></i>
+                    </button>
+                    <span id="copy-feedback" class="copy-feedback">Copied!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Socials Tile -->
+        <div class="contact-box glowing-border">
+            <h3><i class="fa-solid fa-satellite-dish"></i> Socials</h3>
+            <p>Follow me online!</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mcknz.dev"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/mcknz-dev"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-threads"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <h2><i class="fas fa-envelope-open-text"></i> Newsletter</h2>
+            <p>Get occasional updates from MCKNZ.DEV</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed! 🎉');">
+                <input type="email" placeholder="Your email" required>
+                <button type="submit">Join the List</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- === Wallpapers Section === -->
+<section id="wallpapers" class="gradient-section">
+    <h2 class="section-title no-glow">Wallpapers</h2>
+    <img src="wallpapers/apple/Coded%20Core2.png" alt="Coded Core Collection Banner" class="wallpaper-banner" />
+
+    <div class="wallpapers-container">
+        <!-- Wallpaper 1 -->
+        <div class="wallpaper-box glowing-border">
+            <img src="/wallpapers/apple/1.png" alt="Coded Core" class="wallpaper-image" />
+            <div class="wallpaper-label">
+                <i class="fa-brands fa-apple"></i> Coded Core
+            </div>
+        </div>
+
+        <!-- Wallpaper 2 -->
+        <div class="wallpaper-box glowing-border">
+            <img src="/wallpapers/csoon.png" alt="Coming Soon" class="wallpaper-image" />
+            <div class="wallpaper-label">
+                Coming Soon
+            </div>
+        </div>
+
+        <!-- Wallpaper 3 -->
+        <div class="wallpaper-box glowing-border">
+            <img src="/wallpapers/csoon.png" alt="Coming Soon" class="wallpaper-image" />
+            <div class="wallpaper-label">
+                Coming Soon
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    © 2025 MCKNZ.DEV — All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const part1 = "MCKNZ";
+        const part2 = ".DEV";
+        const orangeSpan = document.querySelector("#typed-logo .orange");
+        const greySpan = document.querySelector("#typed-logo .grey");
+        let index = 0;
+
+        function typeFirst() {
+            if (index < part1.length) {
+                orangeSpan.innerHTML += part1.charAt(index);
+                index++;
+                setTimeout(typeFirst, 200);
+            } else {
+                index = 0;
+                setTimeout(typeSecond, 400);
+            }
+        }
+
+        function typeSecond() {
+            if (index < part2.length) {
+                greySpan.innerHTML += part2.charAt(index);
+                index++;
+                setTimeout(typeSecond, 200);
+            }
+        }
+
+        typeFirst();
+    });
+</script>
+
+</body>
+</html>
