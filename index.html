@@ -6,9 +6,13 @@
     <title>mcknz.dev | Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
     <style>
-        body {
+        html, body {
             margin: 0;
+            padding: 0;
+            width: 100vw;
             height: 100vh;
+        }
+        body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
             Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
             background-color: #f5f5f7;
@@ -17,42 +21,60 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            min-width: 100vw;
             text-align: center;
-            padding: 0 20px;
         }
         .logo {
             font-family: 'Orbitron', sans-serif;
             font-weight: 400;
-            font-size: 8rem;
-            margin-bottom: 10px;
-            letter-spacing: 0.06em;
+            font-size: 12vw; /* Responsive scaling */
+            margin-bottom: 12px;
+            letter-spacing: 0.08em;
             white-space: nowrap;
             display: inline-block;
+            max-width: 95vw;
+            overflow-wrap: break-word;
         }
         .logo .mcknz {
-            color: #F58220; /* Matched orange */
+            color: #F58220;
         }
         .logo .dev {
-            color: #7C7C7C; /* Matched grey */
+            color: #7C7C7C;
         }
         .cursor {
             display: inline-block;
-            width: 12px;
+            width: 8px;
+            min-width: 5px;
             background-color: #f58220;
-            margin-left: 6px;
+            margin-left: 4px;
             animation: blink 1s steps(2, start) infinite;
             vertical-align: bottom;
-            height: 1.2em;
+            height: 1.3em;
         }
         @keyframes blink {
             0%, 50% { background-color: #f58220; }
             50.1%, 100% { background-color: transparent; }
         }
         p.subtitle {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 400;
             color: #6e6e73;
-            margin: 20px 0 0;
+            margin: 24px 0 0 0;
+            letter-spacing: 0.04em;
+        }
+        @media (min-width: 480px) {
+            .logo {
+                font-size: 5rem;
+            }
+            p.subtitle {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 900px) {
+            .logo {
+                font-size: 7rem;
+            }
         }
     </style>
 </head>
@@ -61,7 +83,6 @@
     <span id="typed-text"></span><span class="cursor"></span>
 </div>
 <p class="subtitle">Coming Soon</p>
-
 <script>
     const orangePart = 'MCKNZ';
     const greyPart = '.DEV';
