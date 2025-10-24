@@ -144,28 +144,22 @@ h3 i{
 
 }
 
+.tiles i{
+
+    margin-right: 5px;
+}
+
 /* --- Tile Colors --- */
-.tile1 { background: #b3b3be; box-shadow: 0 5px #9999a2;}
-.tile2 { background: #b3b3be; box-shadow: 0 5px #9999a2;}
-.tile3 { background: #b3b3be; box-shadow: 0 5px #9999a2;}
-.tile4 { background: #b3b3be; box-shadow: 0 5px #9999a2;}
-.tile5 { background: #CE9292; box-shadow: 0 5px #C48080;}
-.tile6 { background: #C48080; box-shadow: 0 5px #776262;}
+.tile1 { background: #b3b3be; box-shadow: 0 5px #9999a2; letter-spacing: 2px; text-decoration: underline}
+.tile2 { background: #b3b3be; box-shadow: 0 5px #9999a2;letter-spacing: 1px}
+.tile3 { background: #b3b3be; box-shadow: 0 5px #9999a2;letter-spacing: 1px}
+.tile4 { background: #b3b3be; box-shadow: 0 5px #9999a2;letter-spacing: 1px}
+.tile5 { background: #CE9292; box-shadow: 0 5px #C48080;letter-spacing: 1px}
+.tile6 { background: #C48080; box-shadow: 0 5px #776262;letter-spacing: 1px}
 
 .rights { font-size: 10px; margin-bottom: 0px; margin-top: 30px;}
 .footnote { margin-top: 1px; font-size: 10px; }
 .footnote a { font-family: "orbitron", sans-serif;letter-spacing: 1px; font-weight: bold }
-
-
-
-
-.part3{
-    background-color: rgba(122, 122, 126, 0.21);
-    border-radius: 15px;
-    border: 2px solid #7C7C7C;
-    padding: 10px;
-}
-
 
 
 
