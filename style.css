@@ -61,10 +61,10 @@ html, body {
 }
 
 .icon {
-    width: 80%;
+    width: 70%;
     margin-top: 40px;
     border: #7C7C7C 3px solid;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow:
             0 0 10px rgba(255, 102, 0, 0.7),
             0 0 20px rgba(255, 102, 0, 0.5),
