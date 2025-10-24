@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: "orbitron", sans-serif;
     letter-spacing: 1px;
-    background-color: rgba(205, 206, 213, 0.3);
+    background-color: ghostwhite;
 
 }
 
@@ -34,10 +34,10 @@ header{
     overflow-wrap: break-word;
 }
 .logo .mcknz {
-    color: black;
+    color: #7C7C7C;
 }
 .logo .dev {
-    color: #7C7C7C;
+    color: black;
 }
 .cursor {
     display: inline-block;
@@ -76,7 +76,7 @@ html, body {
 }
 h4{
     margin-top: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 
 }
 
@@ -111,6 +111,7 @@ h3 i{
     font-size: 60px;
     margin-bottom: 10px;
     margin-top: 10px;
+
 }
 
 .social-icons a {
@@ -179,7 +180,7 @@ h3 i{
 
 
 @keyframes blink {
-    0%, 50% { background-color: black; }
+    0%, 50% { background-color: #7C7C7C; }
     50.1%, 100% { background-color: transparent; }
 }
 p.subtitle {
