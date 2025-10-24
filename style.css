@@ -163,3 +163,58 @@ p.subtitle {
         font-size: 7rem;
     }
 }
+
+
+@media (min-width: 1000px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .icon {
+        width: 150px;
+        padding: 10px 0 0 0;
+    }
+    .container { width: 60%; margin: 0 auto; padding: 48px; }
+    .social-icons { font-size: 70px; gap: 65px; }
+    .tiles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 32px;
+        width: 150vw;
+        max-width: 900px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .tiles > a,
+    .tiles > .tile1, .tiles > .tile2, .tiles > .tile3,
+    .tiles > .tile4, .tiles > .tile5, .tiles > .tile6 {
+        font-size: 15px !important;
+        width: 280px;
+        height: 80px;
+        min-height: 50px;
+        border-radius: 999px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        text-align: center;
+
+
+
+        transition: box-shadow 0.14s;
+        padding: 0 10px;
+    }
+    .contact {
+        font-size: 30px;
+        margin-top: 40px;
+    }
+    .rights, .footnote {
+        font-size: 15px;
+        margin: 0;
+    }
+}
