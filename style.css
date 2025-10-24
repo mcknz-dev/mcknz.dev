@@ -45,6 +45,16 @@ body {
     height: 1.3em;
 }
 
+html, body {
+    box-sizing: border-box;
+    width: 100vw;
+    max-width: 110vw;
+    overflow-x: hidden;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 .tiles a {
     color: black;
     text-decoration: none;
@@ -74,7 +84,7 @@ h4{
 h3{
     margin-top: 1px;
     letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 10px;
 
 
@@ -84,7 +94,6 @@ h3{
 
 h3 a{
     color: #7C7C7C;
-    text-decoration-color:#F58220 ;
 
 }
 
@@ -170,6 +179,7 @@ h3 i{
 
 
 
+
 @keyframes blink {
     0%, 50% { background-color: #f58220; }
     50.1%, 100% { background-color: transparent; }
@@ -196,7 +206,7 @@ p.subtitle {
 }
 
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
     header {
         display: flex;
         flex-direction: column;
