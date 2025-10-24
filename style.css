@@ -154,7 +154,23 @@ h3 i{
 
 
 
+.part1{
 
+    border-radius: 10px;
+    border: 2px solid #7C7C7C;
+    margin-bottom: 10px;
+}
+.part2{
+
+    border-radius: 10px;
+    border: 2px solid #7C7C7C;
+    margin-bottom: 10px;
+}
+.part3{
+
+    border-radius: 10px;
+    border: 2px solid #7C7C7C;
+}
 
 
 
