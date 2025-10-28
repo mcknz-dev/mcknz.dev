@@ -1,7 +1,9 @@
+/* ---------------------------------------------- BACKGROUND ALL ---------------------------------------------- */
 body {
     background-color: ghostwhite;
 }
 
+/* ---------------------------------------------- LOGO ALL ---------------------------------------------- */
 .logo {
     font-family: Orbitron, sans-serif;
     text-align: center;
@@ -15,14 +17,7 @@ body {
     width: 350px;
 }
 
-#mcknz {
-    color: black;
-}
-
-#dev {
-    color: #7C7C7C;
-}
-
+/* ---------------------------------------------- TILES ALL ---------------------------------------------- */
 .tiles {
     text-align: center;
     display: grid;
@@ -37,17 +32,17 @@ body {
     font-size: 20px;
     border-radius: 10px;
     letter-spacing: 2px;
-
 }
 
-/* --- Tile Colors --- */
+/* --- TILE COLOURS ALL --- */
 .tile1 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px; width: 75%;}
-.tile2 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px;width: 75%;}
-.tile3 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px;width: 75%;}
-.tile4 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px;width: 75%;}
-.tile5 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px;width: 75%;}
-.tile6 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px;width: 75%;}
+.tile2 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px; width: 75%;}
+.tile3 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px; width: 75%;}
+.tile4 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px; width: 75%;}
+.tile5 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px; width: 75%;}
+.tile6 {border: black 1px solid; background: rgba(193, 193, 201, 0.2); box-shadow: 0 5px #272727; border-radius: 10px; padding: 20px; width: 75%;}
 
+/* ---------------------------------------------- FOOTER ALL ---------------------------------------------- */
 .rights {
     font-size: 12px;
     margin-bottom: 0px;
@@ -68,7 +63,7 @@ body {
     color: black;
 }
 
-/* --- Desktop Enhancements --- */
+/* ---------------------------------------------- DESKTOP ---------------------------------------------- */
 @media (min-width: 768px) {
     .logo {
         font-size: 48px;
