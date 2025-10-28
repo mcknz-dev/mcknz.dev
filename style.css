@@ -1,3 +1,5 @@
+
+
 /* ---------------------------------------------- BACKGROUND ALL ---------------------------------------------- */
 body {
     background-color: ghostwhite;
@@ -17,7 +19,7 @@ body {
     width: 280px;
 }
 
-/* ---------------------------------------------- TILES ALL ---------------------------------------------- */
+/* ---------------------------------------------- NAV BAR ALL ---------------------------------------------- */
 nav {
     background-color: rgba(114, 115, 115, 0.25);
     border-radius: 20px;
@@ -44,6 +46,8 @@ nav a{
     color: black;
 
 }
+
+/* ---------------------------------------------- LINK PAGE  ---------------------------------------------- */
 
 main img{
     display: block;
@@ -89,14 +93,23 @@ main h3{
 
 
 
+/* --- Social Icons --- */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 50px;
+    margin-bottom: 30px;
+    margin-top: 1px;
+}
+.social-icons a{
+    color: black;
+}
 
 
 
 
-
-
-
-
+/* ---------------------------------------------- TILES ALL ---------------------------------------------- */
 .tiles {
     text-align: center;
     display: grid;
