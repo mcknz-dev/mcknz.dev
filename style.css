@@ -1,19 +1,12 @@
 
 body {
     text-align: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
     margin: 0;
     font-family: "orbitron", sans-serif;
     letter-spacing: 1px;
     background-color: ghostwhite;
-
 }
 
-header{
-
-}
 
 .container {
     width: 100%;
@@ -58,6 +51,35 @@ html, body {
 }
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+.menu{
+    display: flex;
+justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: ghostwhite;
+
+}
+.menu ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    width: auto;
+    gap: 2rem;
+    padding: 14px;
+    background-color: rgba(211, 211, 211, 0.44);
+    border-radius: 20px;
+
+
+}
+
+.menu a{
+    text-decoration: none;
+    color: #272727;
 }
 
 .tiles a {
