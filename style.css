@@ -24,7 +24,7 @@ body {
     white-space: nowrap;
     display: inline-block;
     max-width: 95vw;
-    overflow-wrap: break-word;
+
 }
 .logo .mcknz {
     color: black;
@@ -45,25 +45,24 @@ body {
 
 html, body {
     box-sizing: border-box;
-    width: 100vw;
-    max-width: 110vw;
+    width: 100%;
     overflow-x: hidden;
 }
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-.menu{
-    display: flex;
-justify-content: center;
-    align-items: center;
+.menu {
     position: sticky;
     top: 0;
     z-index: 999;
     background: ghostwhite;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.menu ul{
+
+.menu ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,15 +70,8 @@ justify-content: center;
     width: auto;
     gap: 2rem;
     padding: 14px;
-    background-color: rgba(211, 211, 211, 0.44);
+    background-color: rgba(205, 208, 208, 0.87);
     border-radius: 20px;
-
-
-}
-
-.menu a{
-    text-decoration: none;
-    color: #272727;
 }
 
 .tiles a {
@@ -102,10 +94,6 @@ justify-content: center;
 h4{
     margin-top: 0px;
     margin-bottom: 40px;
-
-}
-header {
-    position: sticky;
 
 }
 
