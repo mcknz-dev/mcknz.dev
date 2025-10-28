@@ -55,7 +55,7 @@ main h1{
     text-align: center;
     margin-top: 10%;
     font-weight: normal;
-    font-size: 35px;
+    font-size: 28px;
 }
 
 main h2{
@@ -69,6 +69,13 @@ main h2{
 
 .img1{
  margin-top: 40px;
+}
+
+main{
+    background-color: rgba(124, 124, 124, 0.26);
+    border-radius: 25px;
+    padding: 5px;
+
 }
 
 
