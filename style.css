@@ -8,8 +8,8 @@ body {
     font-family: Orbitron, sans-serif;
     text-align: center;
     font-size: 27px;
-    margin-top: 15%;
-    margin-bottom: 10%;
+    margin-top: 25%;
+    margin-bottom: 15%;
     letter-spacing: 2px;
 }
 
@@ -18,6 +18,66 @@ body {
 }
 
 /* ---------------------------------------------- TILES ALL ---------------------------------------------- */
+nav {
+    background-color: rgba(114, 115, 115, 0.25);
+    border-radius: 25px;
+    position: sticky;
+    top: 20px;
+    margin: 20px;
+
+}
+nav ul{
+    font-family: Orbitron, sans-serif;
+    display: inline-flex;
+    list-style-type: none;
+    justify-content: center;
+    gap: 20px;
+    width: 80%;
+    letter-spacing: 1px;
+
+}
+
+nav a{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+
+}
+
+main img{
+    display: block;
+    width: 400px;
+    margin: auto auto 10%;
+}
+
+main h1{
+    font-family: Orbitron, sans-serif;
+    text-align: center;
+    margin-top: 10%;
+    font-weight: normal;
+    font-size: 35px;
+}
+
+main h2{
+    font-family: Graphik, sans-serif;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .tiles {
     text-align: center;
     display: grid;
@@ -58,9 +118,11 @@ body {
     text-align: center;
     font-family: "orbitron", sans-serif;
     color: black;
+
 }
 .footnote a {
     color: black;
+
 }
 
 /* ---------------------------------------------- DESKTOP ---------------------------------------------- */
