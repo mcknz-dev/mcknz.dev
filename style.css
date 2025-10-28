@@ -20,10 +20,11 @@ body {
 /* ---------------------------------------------- TILES ALL ---------------------------------------------- */
 nav {
     background-color: rgba(114, 115, 115, 0.25);
-    border-radius: 25px;
+    border-radius: 20px;
     position: sticky;
     top: 20px;
-    margin: 20px;
+
+    width: 100%;
 
 }
 nav ul{
@@ -63,20 +64,27 @@ main h2{
     font-weight: normal;
     text-align: center;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5px;
+
     font-size: 30px;
 }
 
+main h3{
+    font-family: Graphik, sans-serif;
+    font-weight: normal;
+    text-align: center;
+    font-size: 20px;
+    width: 85%;
+    display: block;
+    margin: auto auto 8%;
+}
+
 .img1{
- margin-top: 40px;
+    margin-top: 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
 }
 
-main{
-    background-color: rgba(124, 124, 124, 0.26);
-    border-radius: 25px;
-    padding: 5px;
-
-}
 
 
 
@@ -129,10 +137,12 @@ main{
     text-align: center;
     font-family: "orbitron", sans-serif;
     color: black;
+    margin-bottom: 15%;
 
 }
 .footnote a {
     color: black;
+    letter-spacing: 1px;
 
 }
 
