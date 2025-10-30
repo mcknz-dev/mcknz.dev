@@ -129,12 +129,12 @@ main h3{
 }
 
 /* --- TILE COLOURS ALL --- */
-.tile1 {background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile2 {background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile3 {background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile4 {background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile5 {background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile6 {background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
+.tile1 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
+.tile2 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
+.tile3 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
+.tile4 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
+.tile5 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
+.tile6 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
 
 /* ---------------------------------------------- FOOTER ALL ---------------------------------------------- */
 .rights {
