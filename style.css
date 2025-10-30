@@ -23,11 +23,11 @@ body{
 
 /* ---------------------------------------------- NAV BAR ALL ---------------------------------------------- */
 nav {
-    background-color: rgba(114, 115, 115, 0.25);
+    background-color: rgba(208, 208, 210, 0.87);
     border-radius: 20px;
     position: sticky;
     top: 20px;
-
+    border: 1px solid rgba(124, 124, 124, 0.7);
     width: 100%;
 
 }
