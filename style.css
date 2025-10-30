@@ -1,7 +1,9 @@
 
 
 /* ---------------------------------------------- BACKGROUND ALL ---------------------------------------------- */
-
+body{
+    background-color: ghostwhite;
+}
 /* ---------------------------------------------- LOGO ALL ---------------------------------------------- */
 .logo {
     font-family: Orbitron, sans-serif;
@@ -119,7 +121,7 @@ main h3{
 
 .tiles a {
     text-decoration: none;
-    color: black;
+    color: #f58220;
     font-family: Orbitron, sans-serif;
     font-size: 20px;
     border-radius: 10px;
