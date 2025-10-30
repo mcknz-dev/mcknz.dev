@@ -6,7 +6,7 @@
 .logo {
     font-family: Orbitron, sans-serif;
     text-align: center;
-    font-size: 27px;
+    font-size: 50px;
     margin-top: 15%;
     margin-bottom: 5%;
     letter-spacing: 2px;
@@ -14,6 +14,14 @@
 
 .logo img{
     width: 280px;
+}
+
+#mcknz {
+    color: #f58220;
+}
+
+#dev {
+    color: #7C7C7C;
 }
 
 /* ---------------------------------------------- NAV BAR ALL ---------------------------------------------- */
