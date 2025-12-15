@@ -1,18 +1,32 @@
-
-
-/* ---------------------------------------------- BACKGROUND ALL ---------------------------------------------- */
-body{
-    background-color: ghostwhite;
+html, body {
+    height: 100%;
+    margin: 0;
 }
-/* ---------------------------------------------- LOGO ALL ---------------------------------------------- */
-.logo {
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     font-family: Orbitron, sans-serif;
-    text-align: center;
-    font-size: 24px;
-    margin-top: 15%;
-    margin-bottom: 10%;
-    letter-spacing: 2px;
 }
+
+/* Centered content */
+.coming-soon {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    font-size: 100px;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
 #mcknz {
     color: #f58220;
 }
@@ -21,210 +35,23 @@ body{
     color: #7C7C7C;
 }
 
-/* ---------------------------------------------- NAV BAR ALL ---------------------------------------------- */
-nav {
-    background-color: rgba(208, 208, 210, 0.87);
-    border-radius: 20px;
-    position: sticky;
-    top: 20px;
-    border: 1px solid rgba(124, 124, 124, 0.7);
-    width: 100%;
-
-}
-nav ul{
-    font-family: Orbitron, sans-serif;
-    display: inline-flex;
-    list-style-type: none;
-    justify-content: center;
-    gap: 20px;
-    width: 80%;
-    letter-spacing: 1px;
-
-}
-
-nav a{
-    text-decoration: none;
-    text-align: center;
-    color: black;
-
-}
-
-/* ---------------------------------------------- LINK PAGE  ---------------------------------------------- */
-
-main img{
-    display: block;
-    width: 400px;
-    margin: auto auto 8%;
-}
-
-main h1{
-    font-family: Orbitron, sans-serif;
-    text-align: center;
-    margin-top: 10%;
-    font-weight: normal;
-    font-size: 28px;
-}
-
-main h2{
-    font-family: Graphik, sans-serif;
-    font-weight: normal;
-    text-align: center;
-    margin-top: 10%;
-    margin-bottom: 5px;
-
-    font-size: 30px;
-}
-
-main h3{
-    font-family: Graphik, sans-serif;
-    font-weight: normal;
-    text-align: center;
+.soon-text {
+    margin-top: 12px;
     font-size: 20px;
-    width: 85%;
-    display: block;
-    margin: auto auto 15%;
+    letter-spacing: 0.35em;
+    opacity: 0.6;
+    text-transform: uppercase;
 }
 
-.img1{
-    margin-top: 40px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-}
-
-
-
-
-/* ---------------------------------------------- CONTACT PAGE ---------------------------------------------- */
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-size: 50px;
-    margin-bottom: 30px;
-    margin-top: 1px;
-}
-.social-icons a{
-    color: black;
-}
-
-
-
-
-/* ---------------------------------------------- TILES ALL ---------------------------------------------- */
-.tiles {
+/* Footer */
+footer {
     text-align: center;
-    display: grid;
-    gap: 25px;
-    justify-items: center;
+    font-size: 11px;
+    opacity: 0.6;
+    padding-bottom: 20px;
 }
 
-.tiles a {
+footer a {
+    color: #f58220;
     text-decoration: none;
-    color: #070707;
-    font-family: Orbitron, sans-serif;
-    font-size: 18px;
-    border-radius: 10px;
-    letter-spacing: 2px;
 }
-
-/* --- TILE COLOURS ALL --- */
-.tile1 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile2 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile3 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile4 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile5 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-.tile6 {border: 1px solid rgba(124, 124, 124, 0.7);background: rgba(129, 129, 136, 0.11); box-shadow: 0 5px rgba(124, 124, 124, 0.7); border-radius: 10px; padding: 20px; width: 75%;}
-
-/* ---------------------------------------------- FOOTER ALL ---------------------------------------------- */
-.rights {
-    font-size: 12px;
-    margin-bottom: 1px;
-    margin-top: 50px;
-    text-align: center;
-    font-family: "orbitron", sans-serif;
-    letter-spacing: 1px;
-}
-
-.footnote {
-    margin-top: 1px;
-    font-size: 12px;
-    text-align: center;
-    font-family: "orbitron", sans-serif;
-    color: black;
-    margin-bottom: 8%;
-
-}
-.footnote a {
-    color: black;
-    letter-spacing: 1px;
-
-}
-
-/* ---------------------------------------------- DESKTOP ---------------------------------------------- */
-@media (min-width: 768px) {
-    .logo {
-        font-size: 48px;
-        margin-top: 8%;
-        margin-bottom: 6%;
-    }
-
-    .logo img {
-        width: 450px;
-    }
-
-    .tiles {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-        justify-content: center;
-        padding: 0 10%;
-    }
-
-    .tiles a {
-        font-size: 22px;
-    }
-
-    .tiles .tile1,
-    .tiles .tile2,
-    .tiles .tile3,
-    .tiles .tile4,
-    .tiles .tile5,
-    .tiles .tile6 {
-        width: 80%;
-        max-width: 400px;
-        transition: all 0.2s ease-in-out;
-    }
-
-    .tiles .tile1:hover,
-    .tiles .tile2:hover,
-    .tiles .tile3:hover,
-    .tiles .tile4:hover,
-    .tiles .tile5:hover,
-    .tiles .tile6:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px #00000040;
-    }
-
-    .rights, .footnote {
-        font-size: 13px;
-        margin-top: 80px;
-    }
-}
-
-/* --- Large Desktop --- */
-@media (min-width: 1200px) {
-    .tiles {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 0 15%;
-    }
-
-    .logo {
-        font-size: 54px;
-        margin-top: 5%;
-    }
-
-    .logo img {
-        width: 500px;
-    }
-}
-
