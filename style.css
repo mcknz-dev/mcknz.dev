@@ -141,12 +141,3 @@ footer {
         margin-top: 24px;
     }
 }
-
-/* ====================
-   ULTRA-WIDE / 4K
-==================== */
-@media (min-width: 2000px) {
-    .logo {
-        font-size: 5rem;
-    }
-}
