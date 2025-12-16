@@ -42,6 +42,20 @@ body {
     opacity: 0.6;
     text-transform: uppercase;
 }
+.email {
+    margin-top: 100px;
+    font-size: 15px;
+    letter-spacing: 0.35em;
+    opacity: 0.6;
+    text-transform: uppercase;
+    border: #7C7C7C solid 1px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.email a {
+    color: black;
+}
 
 /* Footer */
 footer {
@@ -54,4 +68,28 @@ footer {
 footer a {
     color: #f58220;
     text-decoration: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 48px;          /* was 100px */
+        letter-spacing: 0.08em;   /* tighten spacing */
+    }
+
+    .soon-text {
+        font-size: 14px;
+        letter-spacing: 0.2em;
+        margin-top: 10px;
+    }
+
+    .coming-soon {
+        padding: 0 16px;          /* prevents edge clipping */
+    }
+
+    footer {
+        font-size: 10px;
+        padding-bottom: 12px;
+    }
 }
