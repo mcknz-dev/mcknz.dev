@@ -14,7 +14,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-    background-color: ghostwhite;
+    background-color: #DEDEDE;
     color: #1d1d1f;
 
     display: flex;
@@ -48,7 +48,7 @@ body {
 }
 
 .logo .dev {
-    color: #7C7C7C;
+    color: #4D4D4D;
 }
 
 /* ====================

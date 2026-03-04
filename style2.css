@@ -1,0 +1,240 @@
+/* ====================
+   RESET
+==================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ====================
+   BASE PAGE
+==================== */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: white;
+    color: #1d1d1f;
+    text-align: center;
+}
+
+/* ====================
+   LOGO
+==================== */
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 32px 0;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+/* brand colors */
+#typed-text .mcknz { color: #F58220; }
+#typed-text .dev   { color: #7C7C7C; }
+
+/* ====================
+   CURSOR (SMOOTH TERMINAL)
+==================== */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    margin-left: 2px;
+
+    background-color: #F58220;
+    border-radius: 1px;
+
+    vertical-align: middle;
+    transform: translateY(-0.05em);
+
+    animation: blink 1.2s cubic-bezier(.4,0,.6,1) infinite;
+}
+
+@keyframes blink {
+    0%, 45%   { opacity: 1; }
+    50%, 95%  { opacity: 0; }
+}
+
+/* ====================
+   LAYOUT WRAPPER
+==================== */
+.home {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ====================
+   MAIN GRID
+==================== */
+.tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.9fr;
+    gap: 20px;
+    align-items: start;
+}
+
+/* ====================
+   TILE BASE
+==================== */
+.tile {
+    background-color: rgba(0,0,0,0.035);
+    border-radius: 22px;
+    min-height: 140px;
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(0,0,0,.08);
+}
+
+/* ====================
+   TEXT
+==================== */
+.tile h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0 0 6px;
+}
+
+.tile p {
+    margin: 0;
+    font-size: .95rem;
+    color: #6e6e73;
+}
+
+/* ====================
+   IMAGE TILES
+==================== */
+.tile-image,
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 22px;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.tile:hover img {
+    transform: scale(1.04);
+}
+
+/* ====================
+   COLUMN 1 (LEFT)
+==================== */
+.tile-linkpages {
+    padding: 0;
+}
+
+.tile-lab {
+    grid-column: 1;
+}
+
+/* ====================
+   COLUMN 2 (MIDDLE STACK)
+==================== */
+.right-column {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tile-about p {
+    font-size: 1rem;
+    max-width: 320px;
+}
+
+/* ====================
+   SOCIALS
+==================== */
+.tile-socials {
+    padding: 16px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 28px;
+}
+
+.social-icons i {
+    font-size: 3.2rem;
+    color: #9a9a9a;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.tile-socials:hover i {
+    color: #F58220;
+    transform: translateY(-2px);
+}
+
+/* ====================
+   CONTACT
+==================== */
+.tile-contact a {
+    font-size: 1.4rem;
+    color: #F58220;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+/* ====================
+   COLUMN 3 (RIGHT HERO)
+==================== */
+.tile-wallpapers {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    padding: 0;
+    background: transparent;
+}
+
+/* ====================
+   FOOTER
+==================== */
+footer {
+    margin: 48px 0;
+    font-size: .75rem;
+    color: #818188;
+}
+
+/* ====================
+   MOBILE
+==================== */
+@media (max-width: 768px) {
+    .tiles {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column,
+    .tile-wallpapers {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .logo {
+        font-size: 10vw;
+    }
+
+    .social-icons i {
+        font-size: 1.6rem;
+    }
+}
