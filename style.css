@@ -15,7 +15,7 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
     background-color: white;
-    color: #1d1d1f;
+    color: #6e6e73;
 
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@ body {
 }
 
 .logo .dev {
-    color: #4D4D4D;
+    color: #6e6e73;
 }
 
 /* ====================
