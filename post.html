@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build your own link page for free — MCKNZ.DEV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #f58220;
+      --orange-dim: #c44614;
+      --dark: #1a1a18;
+      --mid: #3a3a36;
+      --muted: #8a8a82;
+      --light: #f5f4f0;
+      --off-white: #efefeb;
+      --border: #e0dfd8;
+      --code-bg: #1e1e1c;
+      --code-text: #e8e6df;
+      --mono: 'Space Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(245,244,240,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+
+    .logo {
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .logo span:first-child { color: var(--orange); }
+    .logo span:last-child { color: var(--mid); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* ── HERO ── */
+    .post-hero {
+      padding: 9rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .post-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.5s 0.1s forwards;
+    }
+
+    .back-link {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--orange); }
+
+    .meta-sep { color: var(--border); font-size: 0.8rem; }
+
+    .post-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--orange);
+      border-radius: 2px;
+      color: var(--orange);
+    }
+
+    .post-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      max-width: 780px;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.5s 0.2s forwards;
+    }
+    .post-hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .post-hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.5s 0.3s forwards;
+    }
+
+    .post-byline {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.5s 0.4s forwards;
+    }
+    .byline-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .byline-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .byline-date {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── CONTENT GRID ── */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 5rem;
+      padding: 4rem 0 6rem;
+      align-items: start;
+    }
+
+    /* ── ARTICLE ── */
+    .article-body {
+      min-width: 0;
+    }
+
+    .article-body p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      margin: 2.5rem 0 1rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .article-body h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 1.75rem 0 0.75rem;
+      color: var(--mid);
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 0.4rem;
+      color: var(--dark);
+    }
+    .article-body li::marker { color: var(--orange); }
+
+    .article-body a {
+      color: var(--orange);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: text-decoration-color 0.2s;
+    }
+    .article-body a:hover { text-decoration-color: var(--orange); }
+
+    .article-body strong { font-weight: 500; }
+
+    /* callout */
+    .callout {
+      border-left: 2px solid var(--orange);
+      padding: 1rem 1.25rem;
+      background: var(--off-white);
+      margin: 2rem 0;
+      font-size: 0.92rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .callout strong { color: var(--dark); }
+
+    /* code blocks */
+    .code-block {
+      background: var(--code-bg);
+      border-radius: 3px;
+      margin: 1.75rem 0;
+      overflow: hidden;
+    }
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .code-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .copy-btn {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .copy-btn:hover { color: var(--orange); }
+    pre {
+      padding: 1.25rem 1rem;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--code-text);
+    }
+    .hl-tag { color: #e06c75; }
+    .hl-attr { color: #98c379; }
+    .hl-val { color: #e5c07b; }
+    .hl-comment { color: #5c6370; font-style: italic; }
+    .hl-prop { color: #61afef; }
+    .hl-str { color: #e5c07b; }
+
+    /* inline code */
+    code {
+      font-family: var(--mono);
+      font-size: 0.82em;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      padding: 0.1em 0.4em;
+      border-radius: 2px;
+      color: var(--orange);
+    }
+
+    /* step numbers */
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      margin: 2rem 0;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--orange);
+      margin-top: 0.15rem;
+    }
+    .step-content { flex: 1; }
+    .step-content h3 { margin-top: 0; }
+
+    /* editable placeholder styles */
+    [contenteditable="true"] {
+      outline: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    [contenteditable="true"]:hover {
+      background: rgba(232, 84, 26, 0.04);
+    }
+    [contenteditable="true"]:focus {
+      background: rgba(232, 84, 26, 0.06);
+      box-shadow: 0 0 0 2px rgba(232,84,26,0.15);
+    }
+
+    /* edit mode banner */
+    .edit-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.65rem 1.25rem;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 200;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeUp 0.4s 1s forwards;
+    }
+    .edit-banner span { color: var(--orange); }
+    .edit-toggle {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .edit-toggle:hover { background: var(--orange-dim); }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .sidebar-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .toc {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .toc a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: block;
+      padding-left: 0.75rem;
+      border-left: 1px solid var(--border);
+      line-height: 1.45;
+    }
+    .toc a:hover, .toc a.active { color: var(--orange); border-left-color: var(--orange); }
+
+    .cta-card {
+      background: var(--dark);
+      padding: 1.5rem;
+      border-radius: 2px;
+    }
+    .cta-card p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .cta-card a {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.6rem 1rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-card a:hover { background: var(--orange-dim); }
+    .cta-card-title {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    .post-footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .post-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .footer-logo span:first-child { color: var(--orange); }
+    .footer-logo span:last-child { color: var(--mid); }
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 760px) {
+      nav { padding: 1.1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .page-wrap { padding: 0 1.5rem; }
+      .post-hero { padding: 7rem 0 3rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 0; }
+      .sidebar { display: none; }
+      .edit-banner { width: calc(100% - 3rem); justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index2.html" class="logo"><span>MCKNZ</span><span>.DEV</span></a>
+  <ul class="nav-links">
+    <li><a href="index2.html#work">work</a></li>
+    <li><a href="index2.html#services">services</a></li>
+    <li><a href="index2.html#blog">blog</a></li>
+    <li><a href="index2.html#contact">contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index2.html#work">work</a>
+  <a href="index2.html#services">services</a>
+  <a href="index2.html#blog">blog</a>
+  <a href="index2.html#contact">contact</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- POST HERO -->
+  <div class="post-hero">
+    <div class="post-meta-top">
+      <a href="index2.html#blog" class="back-link">← blog</a>
+      <span class="meta-sep">/</span>
+      <span class="post-tag">DIY · Tutorial</span>
+    </div>
+    <h1>Build your own link page for <em>free</em> —<br>no Linktree needed.</h1>
+    <p class="subtitle">Linktree charges you monthly for something you can own forever. Here's how to build your own branded link page with nothing but a text editor and a free GitHub account.</p>
+    <div class="post-byline">
+      <div class="byline-info">
+        <span class="byline-name">MCKNZ</span>
+        <span class="byline-date">March 2026 · 6 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-grid">
+
+    <!-- ARTICLE -->
+    <article class="article-body" id="article">
+
+      <p>If you've ever paid for Linktree, Later, or any other "link in bio" tool — I have good news. You've been paying for something you can build yourself in about an hour, host for free, and own completely. No monthly fees. No platform lock-in. Your own domain.</p>
+
+      <p>This is exactly what I built for <a href="https://links.thepinkpooch.com" target="_blank">The Pink Pooch</a> — a local pet grooming business that needed a clean, branded page to replace their Linktree. The result looks way better, loads faster, and costs nothing per month.</p>
+
+      <div class="callout">
+        <strong>What you'll need:</strong> A free <a href="https://github.com" target="_blank">GitHub account</a>, a text editor (even Notepad works), and optionally a custom domain (~$15/year from Namecheap or Cloudflare). That's it.
+      </div>
+
+      <h2 id="what-youre-building">What you're building</h2>
+
+      <p>A single HTML file that lives on GitHub Pages — GitHub's free static hosting. It'll have your photo or logo, your name/brand, and a list of links that visitors can tap. It's mobile-first by design because that's where 95% of "link in bio" traffic comes from.</p>
+
+      <h2 id="step-by-step">Step by step</h2>
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Create a GitHub repository</h3>
+          <p>Sign into GitHub and create a new repository. Name it exactly <code>yourusername.github.io</code> — this gives you a free URL at that same address automatically. Make sure it's set to <strong>Public</strong>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Create your index.html file</h3>
+          <p>In your new repo, click <strong>Add file → Create new file</strong>. Name it <code>index.html</code>. Paste in the template below and customize it with your details.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-label">index.html — starter template</span>
+          <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        </div>
+        <pre><span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-val">"en"</span><span class="hl-tag">&gt;</span>
+<span class="hl-tag">&lt;head&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">charset</span>=<span class="hl-val">"UTF-8"</span><span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;meta</span> <span class="hl-attr">name</span>=<span class="hl-val">"viewport"</span> <span class="hl-attr">content</span>=<span class="hl-val">"width=device-width, initial-scale=1.0"</span><span class="hl-tag">/&gt;</span>
+  <span class="hl-tag">&lt;title&gt;</span>Your Name — Links<span class="hl-tag">&lt;/title&gt;</span>
+  <span class="hl-tag">&lt;style&gt;</span>
+    <span class="hl-prop">*</span> { box-sizing: border-box; margin: 0; padding: 0; }
+    <span class="hl-prop">body</span> {
+      <span class="hl-prop">font-family</span>: <span class="hl-str">sans-serif</span>;
+      <span class="hl-prop">background</span>: <span class="hl-str">#fafafa</span>;
+      <span class="hl-prop">min-height</span>: <span class="hl-str">100vh</span>;
+      <span class="hl-prop">display</span>: <span class="hl-str">flex</span>;
+      <span class="hl-prop">justify-content</span>: <span class="hl-str">center</span>;
+      <span class="hl-prop">padding</span>: <span class="hl-str">3rem 1.5rem</span>;
+    }
+    <span class="hl-prop">.card</span> {
+      <span class="hl-prop">max-width</span>: <span class="hl-str">420px</span>;
+      <span class="hl-prop">width</span>: <span class="hl-str">100%</span>;
+      <span class="hl-prop">text-align</span>: <span class="hl-str">center</span>;
+    }
+    <span class="hl-prop">img</span> {
+      <span class="hl-prop">width</span>: <span class="hl-str">90px</span>; <span class="hl-prop">height</span>: <span class="hl-str">90px</span>;
+      <span class="hl-prop">border-radius</span>: <span class="hl-str">50%</span>;
+      <span class="hl-prop">object-fit</span>: <span class="hl-str">cover</span>;
+      <span class="hl-prop">margin-bottom</span>: <span class="hl-str">1rem</span>;
+    }
+    <span class="hl-prop">h1</span> { <span class="hl-prop">font-size</span>: <span class="hl-str">1.2rem</span>; <span class="hl-prop">margin-bottom</span>: <span class="hl-str">.25rem</span>; }
+    <span class="hl-prop">.bio</span> { <span class="hl-prop">font-size</span>: <span class="hl-str">.85rem</span>; <span class="hl-prop">color</span>: <span class="hl-str">#888</span>; <span class="hl-prop">margin-bottom</span>: <span class="hl-str">2rem</span>; }
+    <span class="hl-prop">a.link-btn</span> {
+      <span class="hl-prop">display</span>: <span class="hl-str">block</span>;
+      <span class="hl-prop">background</span>: <span class="hl-str">#fff</span>;
+      <span class="hl-prop">border</span>: <span class="hl-str">1px solid #e5e5e5</span>;
+      <span class="hl-prop">border-radius</span>: <span class="hl-str">8px</span>;
+      <span class="hl-prop">padding</span>: <span class="hl-str">.9rem 1rem</span>;
+      <span class="hl-prop">margin-bottom</span>: <span class="hl-str">.75rem</span>;
+      <span class="hl-prop">font-size</span>: <span class="hl-str">.9rem</span>;
+      <span class="hl-prop">color</span>: <span class="hl-str">#111</span>;
+      <span class="hl-prop">text-decoration</span>: <span class="hl-str">none</span>;
+      <span class="hl-prop">transition</span>: <span class="hl-str">background .15s</span>;
+    }
+    <span class="hl-prop">a.link-btn:hover</span> { <span class="hl-prop">background</span>: <span class="hl-str">#f0f0f0</span>; }
+  <span class="hl-tag">&lt;/style&gt;</span>
+<span class="hl-tag">&lt;/head&gt;</span>
+<span class="hl-tag">&lt;body&gt;</span>
+  <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-val">"card"</span><span class="hl-tag">&gt;</span>
+    <span class="hl-tag">&lt;img</span> <span class="hl-attr">src</span>=<span class="hl-val">"photo.jpg"</span> <span class="hl-attr">alt</span>=<span class="hl-val">"Your Name"</span><span class="hl-tag">/&gt;</span>
+    <span class="hl-tag">&lt;h1&gt;</span>Your Name<span class="hl-tag">&lt;/h1&gt;</span>
+    <span class="hl-tag">&lt;p</span> <span class="hl-attr">class</span>=<span class="hl-val">"bio"</span><span class="hl-tag">&gt;</span>Short tagline or description<span class="hl-tag">&lt;/p&gt;</span>
+
+    <span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"https://instagram.com/yourhandle"</span> <span class="hl-attr">class</span>=<span class="hl-val">"link-btn"</span><span class="hl-tag">&gt;</span>
+      Instagram
+    <span class="hl-tag">&lt;/a&gt;</span>
+    <span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"https://yourwebsite.com"</span> <span class="hl-attr">class</span>=<span class="hl-val">"link-btn"</span><span class="hl-tag">&gt;</span>
+      Website
+    <span class="hl-tag">&lt;/a&gt;</span>
+    <span class="hl-tag">&lt;a</span> <span class="hl-attr">href</span>=<span class="hl-val">"mailto:you@email.com"</span> <span class="hl-attr">class</span>=<span class="hl-val">"link-btn"</span><span class="hl-tag">&gt;</span>
+      Email me
+    <span class="hl-tag">&lt;/a&gt;</span>
+  <span class="hl-tag">&lt;/div&gt;</span>
+<span class="hl-tag">&lt;/body&gt;</span>
+<span class="hl-tag">&lt;/html&gt;</span></pre>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Enable GitHub Pages</h3>
+          <p>Go to your repo's <strong>Settings → Pages</strong>. Under "Source", select <strong>Deploy from a branch</strong>, choose <code>main</code>, and hit Save. Within a minute or two, your page will be live at <code>yourusername.github.io</code>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Add a custom domain (optional but worth it)</h3>
+          <p>Buy a domain like <code>links.yourbrand.com</code> for ~$15/year. In your domain registrar's DNS settings, add a <code>CNAME</code> record pointing to <code>yourusername.github.io</code>. Then add that domain in your GitHub Pages settings. GitHub handles the SSL certificate automatically.</p>
+        </div>
+      </div>
+
+      <h2 id="making-it-yours">Making it look like you</h2>
+
+      <p>The template above is intentionally bare. The fun part is making it yours. A few easy wins:</p>
+
+      <ul>
+        <li>Change the background color to match your brand</li>
+        <li>Use a Google Font that fits your vibe — just add a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code></li>
+        <li>Add icons from a free library like <a href="https://lucide.dev" target="_blank">Lucide</a> or just use emoji</li>
+        <li>Upload a square photo and reference it as <code>photo.jpg</code> in the same folder</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Don't want to DIY it?</strong> This is exactly the kind of thing I build for small businesses. A custom-branded link page on your own domain, set up and ready to go — starting at a flat one-time fee with no monthly charges. <a href="index2.html#contact">Get in touch →</a>
+      </div>
+
+      <h2 id="updating-links">Updating your links later</h2>
+
+      <p>Whenever you need to change a link, just edit your <code>index.html</code> file directly on GitHub (click the pencil icon), make your change, and commit. It goes live in about 30 seconds. No login to a third-party app, no subscription required.</p>
+
+      <p>It's not as slick as a dashboard, but for most small businesses updating links once a month? It's more than enough. And if you want a proper admin interface so you can edit without touching code at all — that's a service I offer too.</p>
+
+      <h2 id="wrapping-up">That's it</h2>
+
+      <p>You now have a free, fully-owned link page on your own domain. No Linktree. No monthly fees. No algorithms deciding if your account gets suspended. Just a file you own, on hosting you control.</p>
+
+      <p>If you get stuck at any point or want something more polished than the starter template, <a href="index2.html#contact">drop me a message</a> — happy to help.</p>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">In this post</div>
+        <ul class="toc">
+          <li><a href="#what-youre-building">What you're building</a></li>
+          <li><a href="#step-by-step">Step by step</a></li>
+          <li><a href="#making-it-yours">Making it look like you</a></li>
+          <li><a href="#updating-links">Updating links</a></li>
+          <li><a href="#wrapping-up">Wrapping up</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="cta-card">
+          <div class="cta-card-title">Don't want to DIY?</div>
+          <p>I build custom link pages for small businesses. Flat fee, your domain, no monthly cost.</p>
+          <a href="index2.html#contact">Let's talk →</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- POST FOOTER -->
+  <div class="post-footer">
+    <div class="post-footer-inner">
+      <a href="index2.html" class="footer-logo"><span>MCKNZ</span><span>.DEV</span></a>
+      <span class="footer-copy">© 2026 MCKNZ.DEV — All rights reserved.</span>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- EDIT MODE BANNER -->
+<div class="edit-banner" id="editBanner">
+  <span>✦ edit mode</span> Click any text to edit it directly
+  <button class="edit-toggle" id="editToggle">disable</button>
+</div>
+
+<script>
+  // nav scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // toc active state
+  const headings = document.querySelectorAll('article h2');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  headings.forEach(h => observer.observe(h));
+
+  // copy button
+  function copyCode(btn) {
+    const pre = btn.closest('.code-block').querySelector('pre');
+    navigator.clipboard.writeText(pre.innerText).then(() => {
+      btn.textContent = 'copied!';
+      setTimeout(() => btn.textContent = 'copy', 2000);
+    });
+  }
+
+  // edit mode toggle
+  const editToggle = document.getElementById('editToggle');
+  const editBanner = document.getElementById('editBanner');
+  let editMode = true;
+
+  function setEditMode(on) {
+    editMode = on;
+    document.querySelectorAll('.article-body p, .article-body h2, .article-body h3, .article-body li, .post-hero h1, .post-hero .subtitle, .byline-date')
+            .forEach(el => {
+              el.contentEditable = on ? 'true' : 'false';
+            });
+    editToggle.textContent = on ? 'disable' : 'enable';
+    editBanner.querySelector('span').textContent = on ? '✦ edit mode' : '○ view mode';
+  }
+
+  editToggle.addEventListener('click', () => setEditMode(!editMode));
+  setEditMode(true);
+</script>
+
+</body>
+</html>
