@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCKNZ.DEV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --orange: #f58220;
+            --bg: #dedede;
+            --surface: #ffffff;
+            --border: rgba(0,0,0,0.08);
+            --text: #1A1A18;
+            --muted: #6B6B67;
+            --faint: #A8A89F;
+            --mono: 'DM Mono', monospace;
+            --sans: 'DM Sans', sans-serif;
+            --radius: 14px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 15px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(222,222,222,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 56px;
+        }
+
+        .logo {
+            font-family: Orbitron;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: #8a8a8a;
+            flex-shrink: 0;
+        }
+        .logo .accent { color: var(--orange); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-cta {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            padding: 7px 14px;
+            border-radius: 6px;
+            background: var(--orange);
+            color: #fff !important;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .nav-cta:hover { background: #d46b12 !important; transform: translateY(-1px); }
+
+        /* Hamburger */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-toggle span {
+            display: block;
+            height: 1.5px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.25s ease;
+            transform-origin: center;
+        }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: rgba(222,222,222,0.97);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem 1.5rem;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--text); }
+        .mobile-menu .mobile-cta { color: var(--orange); border-bottom: none; margin-top: 0.5rem; }
+
+        /* ── Bento layout ── */
+        .bento-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 4rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 80px;
+            gap: 12px;
+        }
+
+        /* ── Base tile ── */
+        .tile {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .tile:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ── Grid placements ── */
+        .tile-intro    { grid-column: 1 / 6;  grid-row: 1 / 5; background: var(--surface); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; }
+        .tile-pooch    { grid-column: 6 / 13; grid-row: 1 / 4; background: #fadadd; cursor: pointer; }
+        .tile-pooch-fill { grid-column: 6 / 9; grid-row: 4 / 5; background: #fadadd; border-radius: var(--radius); }
+        .tile-isheep   { grid-column: 1 / 5;  grid-row: 5 / 8; background: #f0f0f0; border: 1px solid var(--border); cursor: pointer; }
+        .tile-nextdev  { grid-column: 5 / 9;  grid-row: 5 / 8; background: #111111; cursor: pointer; }
+        .tile-services { grid-column: 9 / 13; grid-row: 4 / 8; background: var(--surface); border: 1px solid var(--border); padding: 1.6rem; display: flex; flex-direction: column; gap: 1rem; }
+        .tile-stack    { grid-column: 1 / 7;  grid-row: 8 / 11; background: #1A1A18; padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; }
+        .tile-contact  { grid-column: 7 / 13; grid-row: 8 / 11; background: var(--orange); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
+
+        .tile-contact:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,130,32,0.28); }
+
+        /* ── Intro tile ── */
+        .intro-available {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--faint);
+            margin-bottom: 0.5rem;
+        }
+        .intro-available::before {
+            content: '';
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s ease infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .intro-name {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            line-height: 1.2;
+        }
+        .intro-role {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-top: 0.6rem;
+        }
+        .intro-bottom { display: flex; flex-direction: column; gap: 8px; }
+
+        /* Buttons */
+        .btn {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            padding: 9px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            width: fit-content;
+            border: none;
+        }
+        .btn-primary { background: var(--orange); color: #fff; }
+        .btn-primary:hover { background: #d46b12; transform: translateY(-1px); }
+        .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-ghost:hover { border-color: rgba(0,0,0,0.2); transform: translateY(-1px); }
+
+        /* ── Project tile inner ── */
+        .project-tile-inner {
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.2rem 1.4rem;
+            text-decoration: none;
+            color: inherit;
+        }
+        .project-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .project-logo-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        .project-logo {
+            max-width: 85%;
+            max-height: 140px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+        .project-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.03em; }
+
+        /* Pink Pooch — background matches logo's soft pink */
+        .tile-pooch { background: #fce8ea; }
+        .tile-pooch-fill { background: #fce8ea; }
+        .tile-pooch .project-label { color: #c06080; }
+        .tile-pooch .project-link  { color: #a04060; }
+
+        /* iSheep — white background matches logo */
+        .tile-isheep { background: #ffffff; border: 1px solid var(--border); }
+        .tile-isheep .project-label { color: var(--faint); }
+        .tile-isheep .project-link  { color: var(--muted); }
+
+        /* NextDev — pure black matches logo background */
+        .tile-nextdev { background: #000000; border: 1px solid #111; }
+        .tile-nextdev .project-label { color: #2a8aaa; }
+        .tile-nextdev .project-link  { color: #2a8aaa; }
+
+        /* ── Services tile ── */
+        .tile-services-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+        .service-item-title { font-size: 12px; font-weight: 500; color: var(--text); }
+        .service-item-desc  { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 1px; }
+
+        /* ── Stack tile ── */
+        .stack-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #555; }
+        .stack-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+        .stack-chip {
+            font-family: var(--mono);
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            color: #999;
+            transition: all 0.15s;
+            cursor: default;
+        }
+        .stack-chip:hover { border-color: var(--orange); color: var(--orange); }
+
+        /* ── Contact tile ── */
+        .contact-label   { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+        .contact-heading { font-size: 22px; font-weight: 400; letter-spacing: -0.02em; color: #fff; line-height: 1.2; }
+        .contact-sub     { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 5px; }
+        .contact-email {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.35);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+            width: fit-content;
+        }
+        .contact-email:hover { border-color: #fff; }
+
+        /* ── Footer ── */
+        footer { border-top: 1px solid var(--border); padding: 1.5rem 0; }
+        footer .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-copy { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a { font-family: var(--mono); font-size: 11px; color: var(--faint); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--orange); }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 72px; gap: 10px; }
+            .tile-intro       { grid-column: 1 / 7; grid-row: 1 / 4; }
+            .tile-pooch       { grid-column: 1 / 4; grid-row: 4 / 7; }
+            .tile-isheep      { grid-column: 4 / 7; grid-row: 4 / 7; }
+            .tile-nextdev     { grid-column: 1 / 4; grid-row: 7 / 10; }
+            .tile-services    { grid-column: 4 / 7; grid-row: 7 / 11; }
+            .tile-stack       { grid-column: 1 / 4; grid-row: 10 / 13; }
+            .tile-contact     { grid-column: 1 / 7; grid-row: 13 / 16; }
+            .tile-pooch-fill  { display: none; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+
+            .bento-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 190px; gap: 10px; }
+            .tile-intro    { grid-column: 1 / 3; grid-row: 1; min-height: 200px; }
+            .tile-pooch    { grid-column: 1 / 2; grid-row: 2; }
+            .tile-isheep   { grid-column: 2 / 3; grid-row: 2; }
+            .tile-nextdev  { grid-column: 1 / 2; grid-row: 3; }
+            .tile-services { grid-column: 2 / 3; grid-row: 3; }
+            .tile-stack    { grid-column: 1 / 3; grid-row: 4; }
+            .tile-contact  { grid-column: 1 / 3; grid-row: 5; }
+            .tile-pooch-fill { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="#" class="logo"><span class="accent">MCKNZ</span>.DEV</a>
+        <ul class="nav-links">
+            <li><a href="#work">work</a></li>
+            <li><a href="#services">services</a></li>
+            <li><a href="#contact" class="nav-cta">get a quote</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#work">work</a>
+        <a href="#services">services</a>
+        <a href="#contact" class="mobile-cta">get a quote ↗</a>
+    </div>
+</nav>
+
+<main>
+    <div class="bento-wrap">
+        <div class="bento-grid">
+
+            <!-- Intro -->
+            <div class="tile tile-intro">
+                <div>
+                    <span class="intro-available">Available for projects</span>
+                    <div class="intro-name">Mackenzie.<br>Web Developer.</div>
+                    <p class="intro-role">I build fast, clean websites and web apps that help businesses grow. Based in Toronto, working everywhere.</p>
+                </div>
+                <div class="intro-bottom">
+                    <a href="#contact" class="btn btn-primary">Get a free quote ↗</a>
+                    <a href="#work" class="btn btn-ghost">See my work ↓</a>
+                </div>
+            </div>
+
+            <!-- Pink Pooch -->
+            <a href="https://thepinkpooch.ca" target="_blank" rel="noopener" class="tile tile-pooch" id="work">
+                <div class="project-tile-inner">
+                    <span class="project-label">Client · 2025</span>
+                    <div class="project-logo-wrap">
+                        <img src="assets2/3.png" alt="The Pink Pooch" class="project-logo">
+                    </div>
+                    <span class="project-link">thepinkpooch.ca ↗</span>
+                </div>
+            </a>
+
+            <!-- Pooch fill strip -->
+            <div class="tile-pooch-fill"></div>
+
+            <!-- iSheep -->
+            <a href="https://isheep.news" target="_blank" rel="noopener" class="tile tile-isheep">
+                <div class="project-tile-inner">
+                    <span class="project-label">Project · 2025</span>
+                    <div class="project-logo-wrap">
+                        <img src="assets2/2.png" alt="iSheep News" class="project-logo">
+                    </div>
+                    <span class="project-link">isheep.news ↗</span>
+                </div>
+            </a>
+
+            <!-- NextDev -->
+            <a href="https://nextdev.ca" target="_blank" rel="noopener" class="tile tile-nextdev">
+                <div class="project-tile-inner">
+                    <span class="project-label">Project · 2024</span>
+                    <div class="project-logo-wrap">
+                        <img src="assets2/1.png" alt="NextDev Academy" class="project-logo">
+                    </div>
+                    <span class="project-link">nextdev.ca ↗</span>
+                </div>
+            </a>
+
+            <!-- Services -->
+            <div class="tile tile-services" id="services">
+                <div class="tile-services-label">What I do</div>
+                <div>
+                    <div class="service-item-title">{ } Website development</div>
+                    <div class="service-item-desc">Custom sites that load fast and convert visitors.</div>
+                </div>
+                <div>
+                    <div class="service-item-title">◈ Web apps & tools</div>
+                    <div class="service-item-desc">Dashboards, portals, and internal tools.</div>
+                </div>
+                <div>
+                    <div class="service-item-title">↻ Redesigns & fixes</div>
+                    <div class="service-item-desc">Slow or broken? I'll sort it out.</div>
+                </div>
+                <div>
+                    <div class="service-item-title">◎ Ongoing retainers</div>
+                    <div class="service-item-desc">A dev on-call without the full-time cost.</div>
+                </div>
+            </div>
+
+            <!-- Stack -->
+            <div class="tile tile-stack">
+                <span class="stack-label">Tech stack</span>
+                <div class="stack-chips">
+                    <span class="stack-chip">HTML / CSS</span>
+                    <span class="stack-chip">JavaScript</span>
+                    <span class="stack-chip">TypeScript</span>
+                    <span class="stack-chip">React</span>
+                    <span class="stack-chip">Next.js</span>
+                    <span class="stack-chip">Node.js</span>
+                    <span class="stack-chip">PostgreSQL</span>
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">AWS</span>
+                    <span class="stack-chip">Git</span>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <a href="/cdn-cgi/l/email-protection#0a626f6666654a6769616470246e6f7c" class="tile tile-contact" id="contact">
+                <span class="contact-label">Get in touch</span>
+                <div>
+                    <div class="contact-heading">Ready to get started?</div>
+                    <div class="contact-sub">I'll reply within 24 hours with a free quote.</div>
+                </div>
+                <span class="contact-email"><span class="__cf_email__" data-cfemail="cfa7aaa3a3a08fa2aca4a1b5e1abaab9">[email&#160;protected]</span> ↗</span>
+            </a>
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <span class="footer-copy">© 2026 MCKNZ.DEV</span>
+        <ul class="footer-links">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        li
