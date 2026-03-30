@@ -1,67 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <title>MCKNZ</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCKNZ.DEV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style2.css" />
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        :root {
+            --orange: #f58220;
+            --bg: #dedede;
+            --surface: #ffffff;
+            --border: rgba(0,0,0,0.08);
+            --text: #1A1A18;
+            --muted: #6B6B67;
+            --faint: #A8A89F;
+            --mono: 'DM Mono', monospace;
+            --sans: 'DM Sans', sans-serif;
+            --radius: 18px;
+        }
+
+        /* Center the entire site in the viewport */
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav { width: 100%; padding: 2rem 0 1rem; text-align: center; }
+        .logo { font-family: Orbitron; font-size: 24px; text-decoration: none; color: #8a8a8a; letter-spacing: 0.05em; }
+        .logo .accent { color: var(--orange); }
+
+        .container {
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* 3-Column Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .tile {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 260px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Status & Labels */
+        .status {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--mono); font-size: 10px; text-transform: uppercase; color: var(--faint);
+            margin-bottom: 1rem;
+        }
+        .status::before { content: ''; width: 6px; height: 6px; background: #4ade80; border-radius: 50%; }
+        .label { font-family: var(--mono); font-size: 10px; color: var(--faint); text-transform: uppercase; margin-bottom: 1rem; }
+
+        /* Typography */
+        h2 { font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.2; }
+        p { font-size: 0.95rem; color: var(--muted); font-weight: 300; }
+
+        /* Services List */
+        .service-list { list-style: none; margin-top: 10px; }
+        .service-item { font-size: 14px; color: var(--muted); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .service-item::before { content: "→"; color: var(--orange); }
+
+        /* Contact Tile & Social Icons */
+        .tile-contact { background: var(--orange); color: white; border: none; }
+        .social-row { display: flex; gap: 15px; margin-top: 20px; }
+        .social-link { color: white; opacity: 0.8; transition: opacity 0.2s; }
+        .social-link:hover { opacity: 1; }
+        .social-link svg { width: 22px; height: 22px; fill: currentColor; }
+
+        /* Project Tiles - All in one row */
+        .tile-project {
+            padding: 0;
+            overflow: hidden;
+            background: #cccccc;
+            position: relative;
+            display: block;
+        }
+        .project-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* Divider Label */
+        .section-label {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--faint);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 2rem 0 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .bento-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
 <body>
 
-<div class="logo">
-    <span id="typed-text"></span>
-    <span class="cursor"></span>
+<nav>
+    <a href="#" class="logo"><span class="accent">MCKNZ</span>.DEV</a>
+</nav>
+
+<div class="container">
+    <div class="bento-grid">
+
+        <div class="tile">
+            <div>
+                <div class="status">Available</div>
+                <h2>About</h2>
+                <p>I design and build high-end digital experiences with a focus on clean aesthetics and performance.</p>
+            </div>
+        </div>
+
+        <div class="tile">
+            <div>
+                <div class="label">Expertise</div>
+                <h2>Services</h2>
+                <ul class="service-list">
+                    <li class="service-item">Web Development</li>
+                    <li class="service-item">Creative Direction</li>
+                    <li class="service-item">SEO Optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tile tile-contact">
+            <div>
+                <div class="label" style="color: rgba(255,255,255,0.7)">Contact</div>
+                <h2 style="font-size: 1.3rem;">Let's work together.</h2>
+                <p style="color: rgba(255,255,255,0.85); font-size: 0.85rem;">hello@mcknz.dev</p>
+
+                <div class="social-row">
+                    <a href="https://github.com/mcknz" class="social-link" target="_blank" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/mcknz.dev" class="social-link" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-label">Selected Projects</div>
+
+        <a href="https://links.thepinkpooch.com" class="tile tile-project" target="_blank">
+            <img src="your-image-here.jpg" alt="The Pink Pooch" class="project-img">
+        </a>
+
+        <a href="https://isheep.news" class="tile tile-project" target="_blank">
+            <img src="your-image-here.jpg" alt="iSheep News" class="project-img">
+        </a>
+
+        <a href="https://nextdev.ca" class="tile tile-project" target="_blank">
+            <img src="your-image-here.jpg" alt="NextDev Academy" class="project-img">
+        </a>
+
+    </div>
 </div>
 
-
-<main class="home">
-    <section class="tiles">
-
-        <!-- Column 1 -->
-        <a class="tile tile-linkpages" href="/link-pages">
-            <img src="assets/test6.png" alt="Custom link page designs preview" class="tile-image" />
-        </a>
-        <div class="tile tile-contact">
-            <h3>Contact</h3><br>
-            <p>
-                <a href="mailto:hello@mcknz.dev">hello@mcknz.dev</a>
-            </p>
-        </div>
-
-        <!-- Column 2 (hero) -->
-
-        <a class="tile tile-wallpapers" href="/wallpapers">
-            <img src="assets/Wallpapers.png" alt="Wallpaper previews" />
-        </a>
-
-        <!-- Column 3 (stacked, independent) -->
-        <div class="right-column">
-
-            <a class="tile tile-wallpapers" href="/wallpapers">
-                <img src="assets/isheep6.png" alt="Wallpaper previews" />
-            </a>
-
-
-
-
-
-        </div>
-
-    </section>
-</main>
-
-<footer>
-    <div class="rights">&copy; 2026 MCKNZ.DEV — All rights reserved.</div>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
