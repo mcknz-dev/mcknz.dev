@@ -180,17 +180,6 @@
             color: var(--faint);
             margin-bottom: 0.75rem;
         }
-        .about-badge::before {
-            content: '';
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: #4caf50;
-            animation: pulse 2.2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.8); }
-        }
         .about-name {
             font-family: var(--sans);
             font-size: clamp(1.1rem, 1.8vw, 1.5rem);
@@ -242,7 +231,7 @@
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.8);
             margin-bottom: 1.25rem;
         }
         .service-row {
@@ -268,7 +257,7 @@
         }
         .service-sub {
             font-size: 0.72rem;
-            color: rgba(255,255,255,0.52);
+            color: rgba(255,255,255,0.65);
             line-height: 1.4;
         }
 
@@ -296,7 +285,7 @@
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.85);
         }
         .contact-heading {
             font-size: 1.25rem;
@@ -359,7 +348,7 @@
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.45);
+            color: rgba(255,255,255,0.7);
         }
         .blog-tile-coming {
             display: flex;
@@ -524,11 +513,11 @@
             padding: 2rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             transition: transform 0.22s ease, box-shadow 0.22s ease;
-            min-height: 0;
-            aspect-ratio: unset;
-            height: 100%;
+            aspect-ratio: 3/2;
         }
         .tile-coming-soon:hover {
             transform: translateY(-3px);
@@ -861,12 +850,15 @@
             .nav-links { display: none; }
             .nav-toggle { display: flex; }
             .bento-grid { grid-template-columns: repeat(2, 1fr); }
-            .tile-project { aspect-ratio: 4/3; }
+            .tile-about, .tile-services, .tile-contact, .tile-blog { grid-column: span 2; }
+            .tile-project { aspect-ratio: 3/2; }
             .wallpapers-grid { grid-template-columns: repeat(2, 1fr); }
             .tile-client { width: 200px; }
         }
         @media (max-width: 480px) {
-            .bento-grid { grid-template-columns: 1fr; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .tile-about, .tile-services, .tile-contact, .tile-blog { grid-column: span 2; }
+            .tile-project { aspect-ratio: 3/2; }
             .wallpapers-grid { grid-template-columns: repeat(2, 1fr); }
             .clients-grid { flex-direction: column; align-items: center; }
             .tile-client { width: 100%; max-width: 320px; }
@@ -882,7 +874,8 @@
             <li><a href="#projects">work</a></li>
             <li><a href="#blog">blog</a></li>
             <li><a href="#contact">contact</a></li>
-            <li><a href="/cdn-cgi/l/email-protection#0b636e6767644b6668606571256f6e7d" class="nav-cta">get a quote</a></li>
+            <li><a href="#wallpapers">wallpapers</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#93fbf6fffffcd3fef0f8fde9bdf7f6e5" class="nav-cta">get a quote</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -892,7 +885,8 @@
         <a href="#projects">work</a>
         <a href="#blog">blog</a>
         <a href="#contact">contact</a>
-        <a href="/cdn-cgi/l/email-protection#dfb7bab3b3b09fb2bcb4b1a5f1bbbaa9" class="mobile-cta">get a quote ↗</a>
+        <a href="#wallpapers">wallpapers</a>
+        <a href="/cdn-cgi/l/email-protection#19717c75757659747a727763377d7c6f" class="mobile-cta">get a quote ↗</a>
     </div>
 </nav>
 
@@ -909,7 +903,7 @@
                     <div class="about-name">Mackenzie Hodgson<br><span class="about-name-sub">Web Developer & Consultant</span></div>
                     <p class="about-desc">I'm a Toronto-based web developer who builds websites for small businesses and personal brands. Whether you need a Shopify store, a portfolio, or a solid presence online, I'll make sure it looks great and gets results.</p>
                 </div>
-                <a href="/cdn-cgi/l/email-protection#acc4c9c0c0c3ecc1cfc7c2d682c8c9da" class="about-btn">Get a free quote ↗</a>
+                <a href="/cdn-cgi/l/email-protection#bbd3ded7d7d4fbd6d8d0d5c195dfdecd" class="about-btn">Get a free quote ↗</a>
             </div>
 
             <!-- SERVICES -->
@@ -965,7 +959,7 @@
                             <svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.028-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.3-.883-2.342-.887h-.046c-.8 0-1.799.199-2.353 1.109l-1.728-1.154c.956-1.454 2.445-2.184 4.062-2.184h.056c2.912.01 4.572 1.82 4.572 4.98v.042c0 .07-.002.14-.006.211.618.29 1.173.667 1.655 1.123.966.908 1.515 2.135 1.717 3.614.246 1.812-.14 3.745-1.348 5.305C17.508 23.146 15.189 23.98 12.187 24h-.001z"/></svg>
                         </a>
                     </div>
-                    <a href="/cdn-cgi/l/email-protection#c8a0ada4a4a788a5aba3a6b2e6acadbe" class="contact-email-link"><span class="__cf_email__" data-cfemail="fd9598919192bd909e969387d399988b">[email&#160;protected]</span> ↗</a>
+                    <a href="/cdn-cgi/l/email-protection#0169646d6d6e416c626a6f7b2f656477" class="contact-email-link"><span class="__cf_email__" data-cfemail="e78f828b8b88a78a848c899dc9838291">[email&#160;protected]</span> ↗</a>
                 </div>
             </div>
 
@@ -1019,12 +1013,8 @@
 
             <!-- COMING SOON -->
             <div class="tile tile-coming-soon">
-                <div class="coming-soon-top">
-                    <span class="coming-soon-label">Coming soon</span>
-                </div>
-                <div class="coming-soon-middle">
-                    <div class="coming-soon-title">Next project<br>in progress.</div>
-                </div>
+                <span class="coming-soon-label">Coming soon</span>
+                <div class="coming-soon-title" style="margin: 0.5rem 0;">Next project<br>in progress.</div>
                 <a href="mailto:hello@mcknz.dev" class="coming-soon-cta">Work with me ↗</a>
             </div>
 
@@ -1119,7 +1109,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     toggle.addEventListener('click', () => {
@@ -1160,13 +1150,4 @@
 
     function showDeskPage(p) {
         dTiles.forEach((t, i) => {
-            t.style.display = (i >= p * perPage && i < (p + 1) * perPage) ? 'block' : 'none';
-        });
-        document.getElementById('wd-counter').textContent = (p + 1) + ' / ' + dTotalPages;
-        document.getElementById('wd-prev').disabled = p === 0;
-        document.getElementById('wd-next').disabled = p === dTotalPages - 1;
-    }
-    document.getElementById('wd-prev').addEventListener('click', () => { if (dPage > 0) showDeskPage(--dPage); });
-    document.getElementById('wd-next').addEventListener('click', () => { if (dPage < dTotalPages - 1) showDeskPage(++dPage); });
-    showDeskPage(0);
-</script>
+            t.style.display = (i >= p * perPage && i < (p + 1) * perPage) ? 'block'
