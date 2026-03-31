@@ -17,6 +17,7 @@
             --bg: #d9d9d9;
             --surface: #f0f0f0;
             --dark: #1a1a1a;
+            --mid: #484848;
             --border: rgba(0,0,0,0.08);
             --text: #1a1a1a;
             --muted: #6b6b6b;
@@ -49,7 +50,7 @@
             border-bottom: 1px solid var(--border);
         }
         nav .container {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -59,7 +60,7 @@
         }
         .logo {
             font-family: Orbitron, monospace;
-            font-size: 24px;
+            font-size: 30px;
             font-weight: 700;
             letter-spacing: 0.04em;
             text-decoration: none;
@@ -87,7 +88,6 @@
         }
         .nav-cta:hover { background: var(--orange-dim) !important; transform: translateY(-1px) !important; }
 
-        /* hamburger */
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -133,17 +133,19 @@
 
         /* ── BENTO WRAP ── */
         .bento-wrap {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem 2rem 5rem;
         }
 
-        /* ── GRID ── */
+        /* ── GRID: 4 columns throughout ── */
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--gap);
         }
+
+        .projects-label { grid-column: 1 / -1; }
 
         /* ── BASE TILE ── */
         .tile {
@@ -165,7 +167,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 320px;
+            min-height: 360px;
+        }
+        .about-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -189,7 +193,7 @@
         }
         .about-name {
             font-family: var(--sans);
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-size: clamp(1.1rem, 1.8vw, 1.5rem);
             font-weight: 500;
             color: var(--text);
             letter-spacing: -0.02em;
@@ -231,7 +235,7 @@
             padding: 2rem;
             display: flex;
             flex-direction: column;
-            min-height: 320px;
+            min-height: 360px;
         }
         .services-label {
             font-family: var(--mono);
@@ -275,7 +279,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 320px;
+            min-height: 360px;
         }
         .tile-contact:hover {
             transform: translateY(-3px);
@@ -295,7 +299,7 @@
             color: rgba(255,255,255,0.7);
         }
         .contact-heading {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 400;
             color: #fff;
             line-height: 1.25;
@@ -305,21 +309,19 @@
         .contact-sub {
             font-size: 0.82rem;
             color: rgba(255,255,255,0.7);
-            margin-bottom: 0;
             line-height: 1.5;
         }
         .contact-socials {
             display: flex;
             gap: 0.65rem;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.25rem;
         }
         .social-pill {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 36px; height: 36px;
             background: rgba(255,255,255,0.18);
             color: #fff;
             border-radius: 50%;
@@ -340,6 +342,57 @@
             display: inline-block;
         }
         .contact-email-link:hover { border-color: #fff; }
+
+        /* ── BLOG TILE ── */
+        .tile-blog {
+            background: var(--mid);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 360px;
+            text-decoration: none;
+        }
+        .tile-blog:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.15); }
+        .blog-tile-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+        }
+        .blog-tile-coming {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .blog-tile-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: -0.02em;
+            line-height: 1.35;
+        }
+        .blog-tile-sub {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.06em;
+        }
+        .blog-tile-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            color: var(--orange);
+            border-bottom: 1px solid rgba(245,130,32,0.4);
+            padding-bottom: 2px;
+            width: fit-content;
+            transition: border-color 0.2s;
+        }
+        .tile-blog:hover .blog-tile-cta { border-color: var(--orange); }
 
         /* ── PROJECTS LABEL ── */
         .projects-label {
@@ -369,11 +422,11 @@
 
         /* ── PROJECT TILES ── */
         .tile-project {
-            aspect-ratio: 4/3;
+            aspect-ratio: 3/2;
             cursor: pointer;
             text-decoration: none;
             display: block;
-            background: #ccc;
+            background: #c8c8c8;
             position: relative;
             overflow: hidden;
             border-radius: var(--radius);
@@ -404,7 +457,6 @@
             padding: 1.25rem;
         }
         .tile-project:hover .project-overlay { opacity: 1; }
-
         .project-overlay-label {
             font-family: var(--mono);
             font-size: 9px;
@@ -424,7 +476,6 @@
             font-size: 10px;
             color: rgba(255,255,255,0.55);
         }
-
         .project-tag {
             position: absolute;
             top: 0.75rem;
@@ -446,7 +497,7 @@
             padding: 1.25rem 0;
         }
         footer .container {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -466,19 +517,359 @@
         }
         .footer-links a:hover { color: var(--orange); }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 760px) {
-            .nav-links { display: none; }
-            .nav-toggle { display: flex; }
-            .bento-grid { grid-template-columns: 1fr 1fr; }
-            .tile-about { grid-column: 1 / -1; min-height: 220px; }
-            .tile-services { min-height: 220px; }
-            .tile-contact { min-height: 220px; }
+        .tile-coming-soon {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            min-height: 0;
+            aspect-ratio: unset;
+            height: 100%;
+        }
+        .tile-coming-soon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+        }
+        .coming-soon-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+        .coming-soon-title {
+            font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+        .coming-soon-cta {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            color: var(--orange);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(245,130,32,0.4);
+            padding-bottom: 2px;
+            width: fit-content;
+            transition: border-color 0.2s;
+        }
+        .coming-soon-cta:hover { border-color: var(--orange); }
+        .clients-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+        .clients-label {
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            padding: 0.75rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .clients-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.12);
+        }
+        .clients-label-count {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--faint);
+            letter-spacing: 0.08em;
+        }
+        .clients-grid {
+            display: flex;
+            gap: var(--gap);
+            justify-content: center;
+        }
+        .tile-client {
+            width: 260px;
+            flex-shrink: 0;
+            aspect-ratio: 9/16;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            text-decoration: none;
+            display: block;
+            background: #c8c8c8;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .tile-client:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+        }
+        .tile-client img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .tile-client {
+            aspect-ratio: 9/16;
+        }
+        .tile-client:hover img { transform: scale(1.03); }
+        .client-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 45%);
+            opacity: 0;
+            transition: opacity 0.28s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.25rem;
+        }
+        .tile-client:hover .client-overlay { opacity: 1; }
+        .client-overlay-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+        .client-overlay-url {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+        }
+        .client-tag {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+            color: rgba(255,255,255,0.85);
+            padding: 3px 8px;
+            border-radius: 100px;
         }
 
+        .tile-client {
+            aspect-ratio: 9/16;
+        }
+
+        .tile-client {
+            width: 280px;
+            flex-shrink: 0;
+            aspect-ratio: 9/24;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            text-decoration: none;
+            display: block;
+            background: #c8c8c8;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+
+        /* ── WALLPAPERS SECTION ── */
+        .wallpapers-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+        .wallpapers-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        .wallpapers-label {
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+        .wallpapers-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.12);
+        }
+        .wallpapers-viewall {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            color: var(--orange);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(245,130,32,0.4);
+            padding-bottom: 2px;
+            white-space: nowrap;
+            transition: border-color 0.2s;
+        }
+        .wallpapers-viewall:hover { border-color: var(--orange); }
+        .wallpapers-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wp-arrow {
+            background: var(--dark);
+            color: #fff;
+            border: none;
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .wp-arrow:hover { background: var(--orange); transform: translateY(-1px); }
+        .wp-arrow:disabled { background: #ccc; cursor: default; transform: none; }
+        .wp-counter {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--faint);
+            letter-spacing: 0.08em;
+            min-width: 32px;
+            text-align: center;
+        }
+        .wallpapers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap);
+        }
+        .tile-wallpaper {
+            aspect-ratio: 4/5;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            display: block;
+            background: #111;
+            text-decoration: none;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .tile-wallpaper:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+        }
+        .tile-wallpaper img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .tile-wallpaper:hover img { transform: scale(1.03); }
+        .wallpaper-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.28s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+        .tile-wallpaper:hover .wallpaper-overlay { opacity: 1; }
+        .tile-wallpaper-desk {
+            aspect-ratio: 16/10;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            display: block;
+            background: #111;
+            text-decoration: none;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .tile-wallpaper-desk:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+        }
+        .tile-wallpaper-desk img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .tile-wallpaper-desk:hover img { transform: scale(1.03); }
+        .tile-wallpaper-desk .wallpaper-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.28s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+        .tile-wallpaper-desk:hover .wallpaper-overlay { opacity: 1; }
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #fff;
+        }
+        .wallpapers-sub-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--faint);
+            margin: 1.25rem 0 0.75rem;
+        }
+        .tile-wallpaper-desk {
+            aspect-ratio: 16/10;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            display: block;
+            background: #111;
+            text-decoration: none;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .tile-wallpaper-desk:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+        }
+        .tile-wallpaper-desk img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .tile-wallpaper-desk:hover img { transform: scale(1.03); }
+        .tile-wallpaper-desk .wallpaper-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.28s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+        .tile-wallpaper-desk:hover .wallpaper-overlay { opacity: 1; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .tile-project { aspect-ratio: 4/3; }
+            .wallpapers-grid { grid-template-columns: repeat(2, 1fr); }
+            .tile-client { width: 200px; }
+        }
         @media (max-width: 480px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .tile-project { aspect-ratio: 4/3; }
+            .wallpapers-grid { grid-template-columns: repeat(2, 1fr); }
+            .clients-grid { flex-direction: column; align-items: center; }
+            .tile-client { width: 100%; max-width: 320px; }
         }
     </style>
 </head>
@@ -489,8 +880,9 @@
         <a href="#" class="logo"><span class="accent">MCKNZ</span>.DEV</a>
         <ul class="nav-links">
             <li><a href="#projects">work</a></li>
+            <li><a href="#blog">blog</a></li>
             <li><a href="#contact">contact</a></li>
-            <li><a href="/cdn-cgi/l/email-protection#acc4c9c0c0c3ecc1cfc7c2d682c8c9da" class="nav-cta">get a quote</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#0b636e6767644b6668606571256f6e7d" class="nav-cta">get a quote</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -498,8 +890,9 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
         <a href="#projects">work</a>
+        <a href="#blog">blog</a>
         <a href="#contact">contact</a>
-        <a href="mailto:hello@mcknz.dev" class="mobile-cta">get a quote ↗</a>
+        <a href="/cdn-cgi/l/email-protection#dfb7bab3b3b09fb2bcb4b1a5f1bbbaa9" class="mobile-cta">get a quote ↗</a>
     </div>
 </nav>
 
@@ -507,85 +900,93 @@
     <div class="bento-wrap">
         <div class="bento-grid">
 
+            <!-- ── ROW 1 ── -->
+
             <!-- ABOUT -->
             <div class="tile tile-about">
                 <div>
-                    <div class="about-badge">About</div><br>
-                    <div class="about-name">Mackenzie H.<br><span class="about-name-sub">Web Developer & Consultant</span></div>
-                    <p class="about-desc">I'm a Toronto-based web developer who builds websites for small businesses and personal brands.</p>
+                    <div class="about-badge">About</div>
+                    <div class="about-name">Mackenzie Hodgson<br><span class="about-name-sub">Web Developer & Consultant</span></div>
+                    <p class="about-desc">I'm a Toronto-based web developer who builds websites for small businesses and personal brands. Whether you need a Shopify store, a portfolio, or a solid presence online, I'll make sure it looks great and gets results.</p>
                 </div>
-                <a href="mailto:hello@mcknz.dev" class="about-btn">Get a free quote ↗</a>
+                <a href="/cdn-cgi/l/email-protection#acc4c9c0c0c3ecc1cfc7c2d682c8c9da" class="about-btn">Get a free quote ↗</a>
             </div>
 
             <!-- SERVICES -->
             <div class="tile tile-services">
                 <div class="services-label">What I do</div>
                 <div class="service-row">
-                    <span class="service-icon">{ }</span>
+                    <span class="service-icon">◈</span>
                     <div>
-                        <div class="service-name">Website design & build</div>
-                        <div class="service-sub">Custom, fast, and fully yours.</div>
+                        <div class="service-name">Shopify stores</div>
+                        <div class="service-sub">Setup, customization, and launch.</div>
                     </div>
                 </div>
                 <div class="service-row">
-                    <span class="service-icon">⬡</span>
+                    <span class="service-icon">{ }</span>
                     <div>
-                        <div class="service-name">Link pages</div>
-                        <div class="service-sub"></div>
+                        <div class="service-name">Website design & build</div>
+                        <div class="service-sub">Custom sites for businesses and personal brands.</div>
                     </div>
                 </div>
                 <div class="service-row">
                     <span class="service-icon">↻</span>
                     <div>
-                        <div class="service-name">Site management</div>
-                        <div class="service-sub"></div>
+                        <div class="service-name">Redesigns & fixes</div>
+                        <div class="service-sub">Got a site that isn't working? I'll sort it out.</div>
                     </div>
                 </div>
                 <div class="service-row">
                     <span class="service-icon">◎</span>
                     <div>
-                        <div class="service-name">Consulting</div>
-                        <div class="service-sub">Not sure what you need? Let's talk.</div>
+                        <div class="service-name">Site management</div>
+                        <div class="service-sub">Ongoing updates and maintenance so you don't have to.</div>
                     </div>
                 </div>
             </div>
 
-            <!-- CONTACT + SOCIALS -->
+            <!-- CONTACT -->
             <div class="tile tile-contact" id="contact">
                 <div class="contact-top-label">Get in touch</div>
-
                 <div class="contact-middle">
                     <div class="contact-heading">Let's work<br>together.</div>
                     <div class="contact-sub">I'll reply within 24 hours.</div>
                 </div>
-
                 <div class="contact-bottom">
                     <div class="contact-divider"></div>
                     <div class="contact-socials">
-                        <!-- GitHub -->
-                        <a href="https://github.com/mcknz" target="_blank" rel="noopener" class="social-pill" title="GitHub">
+                        <a href="https://github.com/mcknz-dev" target="_blank" rel="noopener" class="social-pill" title="GitHub">
                             <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
                         </a>
-                        <!-- Instagram -->
                         <a href="https://instagram.com/mcknz.dev" target="_blank" rel="noopener" class="social-pill" title="Instagram">
                             <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.9 4.9 0 0 1 1.77 1.152 4.9 4.9 0 0 1 1.153 1.77c.163.46.35 1.26.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.43a4.9 4.9 0 0 1-1.152 1.77 4.9 4.9 0 0 1-1.77 1.153c-.46.163-1.26.35-2.43.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.403a4.9 4.9 0 0 1-1.77-1.152 4.9 4.9 0 0 1-1.153-1.77c-.163-.46-.35-1.26-.403-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.43a4.9 4.9 0 0 1 1.152-1.77A4.9 4.9 0 0 1 5.558 2.636c.46-.163 1.26-.35 2.43-.403C9.254 2.175 9.634 2.163 12 2.163zm0-2.163C8.756 0 8.349.013 7.068.072 5.788.131 4.902.333 4.14.63a7.07 7.07 0 0 0-2.555 1.663A7.07 7.07 0 0 0 .63 4.14C.333 4.902.131 5.788.072 7.068.013 8.349 0 8.756 0 12c0 3.244.013 3.651.072 4.932.059 1.28.261 2.166.558 2.928a7.07 7.07 0 0 0 1.663 2.555 7.07 7.07 0 0 0 2.555 1.663c.762.297 1.648.499 2.928.558C8.349 23.987 8.756 24 12 24s3.651-.013 4.932-.072c1.28-.059 2.166-.261 2.928-.558a7.07 7.07 0 0 0 2.555-1.663 7.07 7.07 0 0 0 1.663-2.555c.297-.762.499-1.648.558-2.928.059-1.28.072-1.688.072-4.932s-.013-3.651-.072-4.932c-.059-1.28-.261-2.166-.558-2.928a7.07 7.07 0 0 0-1.663-2.555A7.07 7.07 0 0 0 19.86.63C19.098.333 18.212.131 16.932.072 15.651.013 15.244 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                         </a>
-                        <!-- Threads -->
-                        <a href="https://threads.net/@mcknz.dev" target="_blank" rel="noopener" class="social-pill" title="Threads">
+                        <a href="https://threads.net/@mack_ntosh" target="_blank" rel="noopener" class="social-pill" title="Threads">
                             <svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.028-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.3-.883-2.342-.887h-.046c-.8 0-1.799.199-2.353 1.109l-1.728-1.154c.956-1.454 2.445-2.184 4.062-2.184h.056c2.912.01 4.572 1.82 4.572 4.98v.042c0 .07-.002.14-.006.211.618.29 1.173.667 1.655 1.123.966.908 1.515 2.135 1.717 3.614.246 1.812-.14 3.745-1.348 5.305C17.508 23.146 15.189 23.98 12.187 24h-.001z"/></svg>
                         </a>
                     </div>
-                    <a href="mailto:hello@mcknz.dev" class="contact-email-link">hello@mcknz.dev ↗</a>
+                    <a href="/cdn-cgi/l/email-protection#c8a0ada4a4a788a5aba3a6b2e6acadbe" class="contact-email-link"><span class="__cf_email__" data-cfemail="fd9598919192bd909e969387d399988b">[email&#160;protected]</span> ↗</a>
                 </div>
             </div>
 
-            <!-- PROJECTS DIVIDER -->
-            <div class="projects-label" id="projects">My Projects <span class="projects-label-count">3</span></div>
+            <!-- BLOG -->
+            <a href="blog.html" class="tile tile-blog" id="blog">
+                <div class="blog-tile-label">Blog</div>
+                <div class="blog-tile-coming">
+                    <div class="blog-tile-title">Thoughts on web,<br>business & building.</div>
+                    <div class="blog-tile-sub">Coming soon — first post dropping shortly.</div>
+                </div>
+                <span class="blog-tile-cta">Read the blog ↗</span>
+            </a>
+
+            <!-- ── PROJECTS DIVIDER ── -->
+            <div class="projects-label" id="projects">My Projects <span class="projects-label-count">4</span></div>
+
+            <!-- ── ROW 2: 2x2 PROJECTS ── -->
 
             <!-- THE PINK POOCH -->
-            <!-- Replace assets/pooch.png with your screenshot/image -->
             <a href="https://thepinkpooch.com" target="_blank" rel="noopener" class="tile tile-project">
-                <img src="pink.png" alt="The Pink Pooch" />
+                <img src="assets/pink.png" alt="The Pink Pooch" />
                 <div class="project-tag">Client · 2025</div>
                 <div class="project-overlay">
                     <div class="project-overlay-label">Client project</div>
@@ -595,9 +996,8 @@
             </a>
 
             <!-- ISHEEP NEWS -->
-            <!-- Replace assets/isheep.png with your screenshot/image -->
             <a href="https://isheep.news" target="_blank" rel="noopener" class="tile tile-project">
-                <img src="sheep.png" alt="iSheep News" />
+                <img src="assets/sheep.png" alt="iSheep News" />
                 <div class="project-tag">Project · 2025</div>
                 <div class="project-overlay">
                     <div class="project-overlay-label">Side project</div>
@@ -607,28 +1007,166 @@
             </a>
 
             <!-- NEXTDEV ACADEMY -->
-            <!-- Replace assets/nextdev.png with your screenshot/image -->
             <a href="https://nextdev.academy" target="_blank" rel="noopener" class="tile tile-project">
-                <img src="NEXTOEV.png" alt="NextDev Academy" />
+                <img src="assets/next.png" alt="NextDev Academy" />
                 <div class="project-tag">Co-founded · 2026</div>
                 <div class="project-overlay">
                     <div class="project-overlay-label">Co-founded</div>
                     <div class="project-overlay-name">NextDev Academy</div>
-                    <div class="project-overlay-url">nextdev.ca ↗</div>
+                    <div class="project-overlay-url">nextdev.academy ↗</div>
                 </div>
             </a>
+
+            <!-- COMING SOON -->
+            <div class="tile tile-coming-soon">
+                <div class="coming-soon-top">
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+                <div class="coming-soon-middle">
+                    <div class="coming-soon-title">Next project<br>in progress.</div>
+                </div>
+                <a href="mailto:hello@mcknz.dev" class="coming-soon-cta">Work with me ↗</a>
+            </div>
 
         </div>
     </div>
 </main>
 
+<!-- CLIENTS SECTION -->
+<div class="clients-wrap" id="clients">
+    <div class="clients-label">Link Pages <span class="clients-label-count">2</span></div>
+    <div class="clients-grid">
+
+        <!-- ARHAMA -->
+        <!-- Replace arhama.png with a portrait screenshot of the page -->
+        <a href="https://arhama.links" target="_blank" rel="noopener" class="tile-client">
+            <img src="assets/arhama.JPG" alt="Arhama" />
+            <div class="client-tag">Client · 2025</div>
+            <div class="client-overlay">
+                <div class="client-overlay-name">Arhama</div>
+                <div class="client-overlay-url">arhama.links ↗</div>
+            </div>
+        </a>
+
+        <!-- THE PINK POOCH LINKS -->
+        <!-- Replace pooch-links.png with a portrait screenshot of the page -->
+        <a href="https://links.thepinkpooch.ca" target="_blank" rel="noopener" class="tile-client">
+            <img src="assets/pooch.JPG" alt="The Pink Pooch" />
+            <div class="client-tag">Client · 2025</div>
+            <div class="client-overlay">
+                <div class="client-overlay-name">The Pink Pooch</div>
+                <div class="client-overlay-url">links.thepinkpooch.ca ↗</div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<!-- WALLPAPERS SECTION -->
+<div class="wallpapers-wrap" id="wallpapers">
+    <div class="wallpapers-header">
+        <span class="wallpapers-label">Wallpapers</span>
+        <div class="wallpapers-line"></div>
+        <div class="wallpapers-nav">
+            <button class="wp-arrow" id="wp-prev" aria-label="Previous">←</button>
+            <span class="wp-counter" id="wp-counter">1 / 2</span>
+            <button class="wp-arrow" id="wp-next" aria-label="Next">→</button>
+        </div>
+    </div>
+    <div class="wallpapers-grid" id="wp-grid">
+        <a href="assets/iphone/colour.png" download class="tile-wallpaper"><img src="assets/iphone2/1.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/iphone/white.png" download class="tile-wallpaper"><img src="assets/iphone2/2.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/iphone/blue.png" download class="tile-wallpaper"><img src="assets/iphone2/4.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/iphone/pink.png" download class="tile-wallpaper"><img src="assets/iphone2/7.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/iphone/grey.png" download class="tile-wallpaper" style="display:none"><img src="assets/iphone2/3.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/iphone/green.png" download class="tile-wallpaper" style="display:none"><img src="assets/iphone2/5.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/iphone/red.png" download class="tile-wallpaper" style="display:none"><img src="assets/iphone2/6.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/iphone/purple.png" download class="tile-wallpaper" style="display:none"><img src="assets/iphone2/8.png" alt="Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+    </div>
+</div>
+
+<!-- DESKTOP WALLPAPERS SECTION -->
+<div class="wallpapers-wrap" id="wallpapers-desktop">
+    <div class="wallpapers-header">
+        <span class="wallpapers-label">Desktop Wallpapers</span>
+        <div class="wallpapers-line"></div>
+        <div class="wallpapers-nav">
+            <button class="wp-arrow" id="wd-prev" aria-label="Previous">←</button>
+            <span class="wp-counter" id="wd-counter">1 / 2</span>
+            <button class="wp-arrow" id="wd-next" aria-label="Next">→</button>
+        </div>
+    </div>
+    <div class="wallpapers-grid" id="wd-grid">
+        <a href="assets/desk/colourdesk.png" download class="tile-wallpaper-desk"><img src="assets/desk/colourdesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/desk/whitedesk.png" download class="tile-wallpaper-desk"><img src="assets/desk/whitedesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/desk/bluedesk.png" download class="tile-wallpaper-desk"><img src="assets/desk/bluedesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/desk/pinkdesk.png" download class="tile-wallpaper-desk"><img src="assets/desk/pinkdesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/desk/greydesk.png" download class="tile-wallpaper-desk" style="display:none"><img src="assets/desk/greydesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/desk/greendesk.png" download class="tile-wallpaper-desk" style="display:none"><img src="assets/desk/greendesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/desk/reddesk.png" download class="tile-wallpaper-desk" style="display:none"><img src="assets/desk/reddesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+        <a href="assets/desk/purpledesk.png" download class="tile-wallpaper-desk" style="display:none"><img src="assets/desk/purpledesk.png" alt="Desktop Wallpaper" /><div class="wallpaper-overlay"><span class="wallpaper-dl">Download ↓</span></div></a>
+    </div>
+</div>
+
 <footer>
     <div class="container">
         <span class="footer-copy">© 2026 MCKNZ.DEV — All rights reserved.</span>
         <ul class="footer-links">
-            <li><a href="https://github.com/mcknz">GitHub</a></li>
+            <li><a href="https://github.com/mcknz-dev">GitHub</a></li>
             <li><a href="https://instagram.com/mcknz.dev">Instagram</a></li>
-            <li><a href="https://threads.net/@mcknz.dev">Threads</a></li>
+            <li><a href="https://threads.net/@mack_ntosh">Threads</a></li>
         </ul>
     </div>
 </footer>
+
+<script>
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', false);
+        });
+    });
+
+    // iPhone wallpaper carousel
+    const tiles = document.querySelectorAll('#wp-grid .tile-wallpaper');
+    const perPage = 4;
+    const totalPages = Math.ceil(tiles.length / perPage);
+    let page = 0;
+
+    function showPage(p) {
+        tiles.forEach((t, i) => {
+            t.style.display = (i >= p * perPage && i < (p + 1) * perPage) ? 'block' : 'none';
+        });
+        document.getElementById('wp-counter').textContent = (p + 1) + ' / ' + totalPages;
+        document.getElementById('wp-prev').disabled = p === 0;
+        document.getElementById('wp-next').disabled = p === totalPages - 1;
+    }
+    document.getElementById('wp-prev').addEventListener('click', () => { if (page > 0) showPage(--page); });
+    document.getElementById('wp-next').addEventListener('click', () => { if (page < totalPages - 1) showPage(++page); });
+    showPage(0);
+
+    // Desktop wallpaper carousel
+    const dTiles = document.querySelectorAll('#wd-grid .tile-wallpaper-desk');
+    const dTotalPages = Math.ceil(dTiles.length / perPage);
+    let dPage = 0;
+
+    function showDeskPage(p) {
+        dTiles.forEach((t, i) => {
+            t.style.display = (i >= p * perPage && i < (p + 1) * perPage) ? 'block' : 'none';
+        });
+        document.getElementById('wd-counter').textContent = (p + 1) + ' / ' + dTotalPages;
+        document.getElementById('wd-prev').disabled = p === 0;
+        document.getElementById('wd-next').disabled = p === dTotalPages - 1;
+    }
+    document.getElementById('wd-prev').addEventListener('click', () => { if (dPage > 0) showDeskPage(--dPage); });
+    document.getElementById('wd-next').addEventListener('click', () => { if (dPage < dTotalPages - 1) showDeskPage(++dPage); });
+    showDeskPage(0);
+</script>
