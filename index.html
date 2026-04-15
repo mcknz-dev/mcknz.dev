@@ -365,7 +365,7 @@
         .blog-tile-sub {
             font-family: var(--mono);
             font-size: 0.72rem;
-            color: rgba(255,255,255,0.35);
+            color: rgba(255,255,255,0.7);
             letter-spacing: 0.06em;
         }
         .blog-tile-cta {
@@ -382,6 +382,104 @@
             transition: border-color 0.2s;
         }
         .tile-blog:hover .blog-tile-cta { border-color: var(--orange); }
+
+        /* ── PORTFOLIO TILES (temp — remove after grading) ── */
+        .portfolio-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: var(--gap);
+        }
+        .tile-resume {
+            background: var(--mid);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+        .tile-resume .ptile-label { color: rgba(255,255,255,0.85); }
+        .tile-resume .ptile-sub { color: rgba(255,255,255,0.75); }
+        .tile-education {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+        .tile-education .ptile-label { color: var(--muted); }
+        .tile-education .ptile-title { color: var(--dark); font-size: 0.9rem; }
+        .tile-education .ptile-sub { color: var(--muted); }
+        .tile-deans {
+            background: var(--dark);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+        .tile-deans .ptile-label { color: rgba(255,255,255,0.85); }
+        .tile-deans .ptile-title { color: #fff; }
+        .tile-deans .ptile-sub { color: rgba(255,255,255,0.75); }
+        .ptile-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+        }
+        .ptile-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.2rem;
+            line-height: 1.3;
+        }
+        .ptile-sub {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .edu-entry { margin-bottom: 0.75rem; }
+        .edu-entry:last-child { margin-bottom: 1.25rem; }
+        .ptile-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--orange);
+            color: #fff;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            padding: 7px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            width: fit-content;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .ptile-btn:hover { background: var(--orange-dim); transform: translateY(-1px); }
+        .deans-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .deans-pill {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 6px;
+            padding: 5px 12px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .deans-pill:hover { background: rgba(255,255,255,0.2); color: #fff; }
 
         /* ── PROJECTS LABEL ── */
         .projects-label {
@@ -851,6 +949,7 @@
             .nav-toggle { display: flex; }
             .bento-grid { grid-template-columns: repeat(2, 1fr); }
             .tile-about, .tile-services, .tile-contact, .tile-blog { grid-column: span 2; }
+            .portfolio-row { grid-template-columns: 1fr; }
             .tile-project { aspect-ratio: 3/2; }
             .wallpapers-grid { grid-template-columns: repeat(2, 1fr); }
             .tile-client { width: 200px; }
@@ -858,6 +957,7 @@
         @media (max-width: 480px) {
             .bento-grid { grid-template-columns: repeat(2, 1fr); }
             .tile-about, .tile-services, .tile-contact, .tile-blog { grid-column: span 2; }
+            .portfolio-row { grid-template-columns: 1fr; }
             .tile-project { aspect-ratio: 3/2; }
             .wallpapers-grid { grid-template-columns: repeat(2, 1fr); }
             .clients-grid { flex-direction: column; align-items: center; }
@@ -972,6 +1072,50 @@
                 </div>
                 <span class="blog-tile-cta">Read the blog ↗</span>
             </a>
+
+            <!-- ── PORTFOLIO ROW (temp — remove after grading) ── -->
+            <div class="portfolio-row">
+
+                <!-- RESUME TILE -->
+                <div class="tile tile-resume">
+                    <div>
+                        <div class="ptile-label">Resume</div>
+                        <div class="ptile-sub">Operations & web development background · George Brown College, T197</div>
+                    </div>
+                    <a href="assets/Mackenzie%20Hodgson%20Resume.pdf" target="_blank" rel="noopener" class="ptile-btn">View Resume ↗</a>
+                </div>
+
+                <!-- EDUCATION TILE -->
+                <div class="tile tile-education">
+                    <div class="ptile-label">Education</div>
+                    <div>
+                        <div class="edu-entry">
+                            <div class="ptile-title">Computer Programming & Analysis</div>
+                            <div class="ptile-sub">George Brown College · Advanced Diploma · Expected June 2027</div>
+                        </div>
+                        <div class="edu-entry">
+                            <div class="ptile-title">Executive Office Administration</div>
+                            <div class="ptile-sub">Seneca College · Diploma · June 2020</div>
+                        </div>
+                    </div>
+                    <a href="assets/Unofficial%20Transcript.pdf" target="_blank" rel="noopener" class="ptile-btn">View Transcript ↗</a>
+                </div>
+
+                <!-- DEAN'S LETTERS TILE -->
+                <div class="tile tile-deans">
+                    <div>
+                        <div class="ptile-label">Academic Acknowledgements</div>
+                        <div class="ptile-title">Dean's Letters</div>
+                        <div class="ptile-sub">George Brown College · 3 letters</div>
+                    </div>
+                    <div class="deans-pills">
+                        <a href="assets/Winter%202025%20Honours%20copy.pdf" target="_blank" rel="noopener" class="deans-pill">Letter 1 ↗</a>
+                        <a href="assets/Spring%202025%20Hounours%20copy.pdf" target="_blank" rel="noopener" class="deans-pill">Letter 2 ↗</a>
+                        <a href="assets/Fall%202025%20Honours%20copy.pdf" target="_blank" rel="noopener" class="deans-pill">Letter 3 ↗</a>
+                    </div>
+                </div>
+
+            </div>
 
             <!-- ── PROJECTS DIVIDER ── -->
             <div class="projects-label" id="projects">My Projects <span class="projects-label-count">4</span></div>
